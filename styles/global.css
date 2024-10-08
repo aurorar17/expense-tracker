@@ -74,12 +74,6 @@ button {
   }
 }
 
-body {
-  background-color: #000 !important;
-
-  color: var(--default-white) !important;
-}
-
 :root {
   --default-black: #000;
   --default-white: #fff;
