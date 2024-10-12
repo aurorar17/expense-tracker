@@ -1,0 +1,81 @@
+@media screen and (max-width: 768px) {
+  body {
+    padding: 0;
+  }
+
+  .wrap {
+    flex-direction: column;
+    padding: 0 5%;
+    background-color: transparent;
+    width: 100%;
+    overflow: auto;
+  }
+
+  header {
+    flex-direction: row;
+    width: 100%;
+    border: none;
+    justify-content: space-between;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0 5%;
+  }
+
+  .mobileBtn {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9);
+    top: 0;
+    left: 0;
+  }
+
+  .closeBtn {
+    margin: 5%;
+  }
+
+  #mobileMenuBtn:checked ~ nav {
+    display: block;
+  }
+
+  .user-info {
+    margin: 40px 0;
+  }
+
+  .user-info img {
+    width: 25%;
+  }
+  .menuContain {
+    width: 100%;
+    align-items: center;
+  }
+
+  main {
+    margin-top: 50px;
+    flex-direction: column;
+  }
+
+  section {
+    gap: 32px;
+  }
+
+  .current-box {
+    background-color: white;
+  }
+
+  .recentPayment {
+    gap: 10px;
+  }
+
+  .transaction .dot {
+    width: 16px;
+    height: 16px;
+  }
+}
