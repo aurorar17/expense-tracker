@@ -1,1 +1,198 @@
 @import url("./global.css");
+
+body {
+  background-image: radial-gradient(circle, #ffffff, #ccc3dc);
+  padding: 32px 0;
+  height: 100vh;
+  color: var(--main-purple-color);
+}
+
+.wrap {
+  width: 90%;
+  max-width: 1440px;
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  gap: 40px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+header,
+main {
+  padding: 24px 0;
+}
+
+header,
+nav {
+  height: 100%;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 70px;
+  align-items: center;
+}
+
+header {
+  border-right: 1px solid var(--main-purple-color);
+}
+
+#mobileMenuBtn,
+.mobileBtn {
+  display: none;
+}
+
+.user-info a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.user-info img {
+  width: 50%;
+}
+
+.menuContain {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
+}
+
+.menu > a {
+  display: flex;
+  align-items: center;
+  /* gap: 10px; */
+}
+
+.menu svg {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.menu a h3 {
+  color: var(--sub-purple-color);
+}
+
+.menu a h3.active {
+  color: var(--main-purple-color);
+}
+
+/* section */
+
+main {
+  width: -webkit-fill-available;
+  display: flex;
+  gap: 80px;
+}
+
+section {
+  width: -webkit-fill-available;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.current-box {
+  width: 100%;
+  background-color: var(--secondary-gray);
+  padding: 48px 40px;
+  border-radius: 24px;
+  box-shadow: 5px 5px 10px #ccc3dc;
+}
+
+.monthlyExpense {
+  display: flex;
+  width: 100%;
+}
+
+.MonthSummary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.MonthSummary.income {
+  border-right: 1px solid var(--sub-purple-color);
+}
+
+.MonthSummary.income h2 {
+  color: var(--green-to-income);
+}
+.MonthSummary.expense h2 {
+  color: var(--red-to-expense);
+}
+
+.recentPayment {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.recentTop {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recentPayment hr {
+  width: 100%;
+  border-top: thin solid var(--sub-purple-color);
+}
+
+.transactionList {
+  width: 100%;
+  height: auto;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.transaction {
+  display: flex;
+  width: 100%;
+  /* justify-content: space-between; */
+  gap: 20px;
+  align-items: center;
+}
+
+.transaction .dot {
+  width: 24px;
+  height: 24px;
+  aspect-ratio: 1;
+  border-radius: 100%;
+}
+
+.transaction.transIncome .dot {
+  background-color: var(--green-to-income);
+}
+.transaction.transExpense .dot {
+  background-color: var(--red-to-expense);
+}
+
+.transDate {
+  width: 80px;
+}
+.transContentList {
+  width: calc(100% - 24px - 160px - 12px);
+}
+
+.transCost {
+  width: 80px;
+}
+
+.chartArea,
+.categoriesChart {
+  height: 100%;
+}
