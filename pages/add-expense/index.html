@@ -39,4 +39,34 @@
       </form>
     </section>
   </body>
+
+  <script>
+    document.getElementById("inputForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const income = document.querySelector("#income").value;
+      const category = document.querySelector("#categoryList").value;
+      const date = document.querySelector("input[type=date]").value;
+      const description = document.querySelector("#description").value;
+      const cost = document.querySelector("input[type=number]").value;
+
+      let expenses = JSON.parse(localStorage.getItem("expense")) || [];
+
+      const newExpense = {
+        income,
+        category,
+        date,
+        description,
+        cost: parseFloat(cost), // cost -> number
+      };
+
+      expenses.push(newExpense);
+
+      localStorage.setItem("expense", JSON.stringify(expenses));
+
+      document.getElementById("inputForm").reset();
+
+      alert("Expense added successfully!");
+    });
+  </script>
 </html>
