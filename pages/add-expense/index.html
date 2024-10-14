@@ -9,6 +9,35 @@
     <link rel="stylesheet" href="/styles/desktop.css" />
   </head>
   <body>
-    <section>Add Expense</section>
+    Add Expense
+    <section>
+      <form id="inputForm">
+        <select id="income">
+          <option value="income">+ Income</option>
+          <option value="expense">- Expense</option>
+        </select>
+        <select id="categoryList">
+          <option value="cate1">Cate1</option>
+          <option value="cate2">Cate2</option>
+          <option value="cate3">Cate3</option>
+          <option value="cate4">Cate4</option>
+          <option value="cate5">Cate5</option>
+        </select>
+        <input type="date" required />
+        <input
+          type="text"
+          id="description"
+          placeholder="Enter description"
+          required
+        />
+        <input
+          type="number"
+          step="0.01"
+          placeholder="Enter the Cost"
+          required
+        />
+        <button type="submit">Submit</button>
+      </form>
+    </section>
   </body>
 </html>

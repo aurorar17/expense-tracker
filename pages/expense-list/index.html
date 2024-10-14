@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="/styles/desktop.css" />
   </head>
   <body>
+    <section id="inputFormArea">
+      <!-- add the add-expense -->
+      <script>
+        fetch("../add-expense/index.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("inputFormArea").innerHTML = data;
+          });
+      </script>
+    </section>
     <section>Expense List</section>
     <ul></ul>
   </body>

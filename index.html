@@ -111,7 +111,7 @@
               </a>
             </div>
             <div class="menu">
-              <a href="./pages/expense-list/index.html">
+              <a href="./pages/category-list/index.html">
                 <svg
                   width="28"
                   height="24"
@@ -165,16 +165,16 @@
         <section class="left-section">
           <h2 class="subTitle">Welcome Back, <span>User!</span></h2>
           <div class="current-box">
-            <h3>Current Balance</h3>
+            <h3 class="transTitle">Current Balance</h3>
             <h1>$ 350.00</h1>
           </div>
           <div class="monthlyExpense">
             <div class="MonthSummary income">
-              <h3>Monthly Income</h3>
+              <h3 class="transTitle">Monthly Income</h3>
               <h2>$ 350.00</h2>
             </div>
             <div class="MonthSummary expense">
-              <h3>Monthly Expense</h3>
+              <h3 class="transTitle">Monthly Expense</h3>
               <h2>$ 150.00</h2>
             </div>
           </div>
@@ -186,100 +186,26 @@
               </h3>
             </div>
             <hr />
-            <div class="transactionList">
-              <div class="transaction transIncome">
-                <div class="dot"></div>
-                <h2 class="transDate">27 Sep</h2>
-                <div class="transContentList">
-                  <h3 class="transContent">Buy Clothes</h3>
-                  <h4 class="transCategories">shopping</h4>
-                </div>
-                <h2 class="transCost">- 27.00</h2>
-                <button class="transDetain">
-                  <svg
-                    width="11"
-                    height="12"
-                    viewBox="0 0 11 12"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.512 0.795999H5.672L10.544 6.1L5.672 11.404H0.512L5.408 6.1L0.512 0.795999Z"
-                      fill="black"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <div class="transaction transExpense">
-                <div class="dot"></div>
-                <h2 class="transDate">27 Sep</h2>
-                <div class="transContentList">
-                  <h3 class="transContent">Buy Clothes</h3>
-                  <h4 class="transCategories">shopping</h4>
-                </div>
-                <h2 class="transCost">- 27.00</h2>
-                <button class="transDetain">
-                  <svg
-                    width="11"
-                    height="12"
-                    viewBox="0 0 11 12"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.512 0.795999H5.672L10.544 6.1L5.672 11.404H0.512L5.408 6.1L0.512 0.795999Z"
-                      fill="black"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <div class="transaction transExpense">
-                <div class="dot"></div>
-                <h2 class="transDate">27 Sep</h2>
-                <div class="transContentList">
-                  <h3 class="transContent">Buy Clothes</h3>
-                  <h4 class="transCategories">shopping</h4>
-                </div>
-                <h2 class="transCost">- 27.00</h2>
-                <button class="transDetain">
-                  <svg
-                    width="11"
-                    height="12"
-                    viewBox="0 0 11 12"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.512 0.795999H5.672L10.544 6.1L5.672 11.404H0.512L5.408 6.1L0.512 0.795999Z"
-                      fill="black"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <div class="transaction transExpense">
-                <div class="dot"></div>
-                <h2 class="transDate">27 Sep</h2>
-                <div class="transContentList">
-                  <h3 class="transContent">Buy Clothes</h3>
-                  <h4 class="transCategories">shopping</h4>
-                </div>
-                <h2 class="transCost">- 27.00</h2>
-                <button class="transDetain">
-                  <svg
-                    width="11"
-                    height="12"
-                    viewBox="0 0 11 12"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.512 0.795999H5.672L10.544 6.1L5.672 11.404H0.512L5.408 6.1L0.512 0.795999Z"
-                      fill="black"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
+            <table>
+              <tbody>
+                <tr class="transIncome">
+                  <td></td>
+                  <td>27 Sep</td>
+                  <td>shopping</td>
+                  <td>Buy Clothes</td>
+                  <td>- 27.00</td>
+                  <td>></td>
+                </tr>
+                <tr class="transExpense">
+                  <td></td>
+                  <td>27 Sep</td>
+                  <td>shopping</td>
+                  <td>Buy Clothes</td>
+                  <td>- 27.00</td>
+                  <td>></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
         <section class="right-section">
@@ -295,6 +221,20 @@
           </div>
         </section>
       </main>
+      <div id="mobileBottom">
+        <div class="user">
+          <a href="./pages/UserInfo/index.html"> User Info </a>
+        </div>
+        <div class="add-expense">+</div>
+        <div id="mobileAddExpenseArea">
+          <!-- popup // fetch the add-expense html -->
+          <!-- When Click the button of the "add-expense", the popup has a class "add-popup" -->
+          <!-- I'll make this function -->
+        </div>
+        <div class="editCategory">
+          <a href="./pages/category-list/index.html">Categories</a>
+        </div>
+      </div>
     </div>
   </body>
 

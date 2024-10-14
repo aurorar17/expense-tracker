@@ -78,4 +78,44 @@
     width: 16px;
     height: 16px;
   }
+
+  #mobileBottom {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #ccc3dc;
+    border-top: thin solid var(--sub-purple-color);
+    line-height: 50px;
+    justify-content: space-around;
+  }
+
+  #mobileAddExpenseArea {
+    display: none;
+  }
+
+  .add-expense {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    border-radius: 100%;
+    background-color: #fff;
+    top: -50%;
+    line-height: 60px;
+    font-size: 3.5rem;
+    box-shadow: 2px 2px 5px var(--main-purple-color);
+  }
+
+  #mobileAddExpenseArea.add-popup {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 50px);
+    background-color: rgba(255, 255, 255, 0.9);
+    bottom: 50px;
+    left: 0;
+  }
 }
