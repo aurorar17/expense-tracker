@@ -18,47 +18,61 @@
         <section>
           Expense List
           <div id="inputFormArea">
-            <!-- add the add-expense -->
-            <script>
+            <script type="module">
               fetch("/pages/add-expense/index.html")
                 .then((response) => response.text())
                 .then((data) => {
                   document.querySelector("#inputFormArea").innerHTML = data;
 
-                  // 스크립트를 실행합니다.
-                  const script = document.createElement("script");
-                  script.textContent = `
-                    document.getElementById("inputForm").addEventListener("submit", (e) => {
-                      e.preventDefault();
-                      
-                      const income = document.querySelector("#income").value;
-                      const category = document.querySelector("#categoryList").value;
-                      const date = document.querySelector("input[type=date]").value;
-                      const description = document.querySelector("#description").value;
-                      const cost = parseFloat(document.querySelector("input[type=number]").value) || 0; // 기본값 0
+                  import("/modules/category_module.js").then(
+                    ({ categories }) => {
+                      document
+                        .getElementById("inputForm")
+                        .addEventListener("submit", (e) => {
+                          e.preventDefault();
 
-                      let expenses = JSON.parse(localStorage.getItem("expense")) || [];
+                          const income =
+                            document.querySelector("#income").value;
+                          const category =
+                            document.querySelector("#categoryList").value;
+                          const date =
+                            document.querySelector("input[type=date]").value;
+                          const description =
+                            document.querySelector("#description").value;
+                          const cost =
+                            parseFloat(
+                              document.querySelector("input[type=number]").value
+                            ) || 0;
+                          const categoryName = categories.get(
+                            Number(category)
+                          ).name;
 
-                      const newExpense = {
-                        income,
-                        category,
-                        date,
-                        description,
-                        cost, // 이미 숫자
-                      };
+                          let expenses =
+                            JSON.parse(localStorage.getItem("expense")) || [];
 
-                      expenses.push(newExpense);
-                      localStorage.setItem("expense", JSON.stringify(expenses));
+                          const newExpense = {
+                            income,
+                            category: categoryName,
+                            date,
+                            description,
+                            cost,
+                          };
 
-                      document.getElementById("inputForm").reset();
+                          expenses.push(newExpense);
+                          localStorage.setItem(
+                            "expense",
+                            JSON.stringify(expenses)
+                          );
 
-                      alert("Expense added successfully!");
+                          document.getElementById("inputForm").reset();
 
-                      // 테이블 업데이트
-                      updateTable();
-                    });
-                  `;
-                  document.body.appendChild(script);
+                          alert("Expense added successfully!");
+
+                          // 테이블 업데이트
+                          updateTable();
+                        });
+                    }
+                  );
                 });
             </script>
           </div>
@@ -83,6 +97,8 @@
   </body>
 
   <script src="/utils/loadFile.js"></script>
+  <script type="module" src="/modules/category_module.js"></script>
+
   <script>
     function updateTable() {
       const expenses = JSON.parse(localStorage.getItem("expense")) || [];
