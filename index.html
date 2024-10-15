@@ -36,30 +36,15 @@
             <div class="recentTop">
               <h2 class="subTitle">Recent Payments</h2>
               <h3>
-                <a href="./pages/expense-list/index.html"> + View All </a>
+                <a href="/pages/expense-list/index.html"> + View All </a>
               </h3>
             </div>
             <hr />
-            <table>
-              <tbody>
-                <tr class="transIncome">
-                  <td></td>
-                  <td>27 Sep</td>
-                  <td>shopping</td>
-                  <td>Buy Clothes</td>
-                  <td>- 27.00</td>
-                  <td>></td>
-                </tr>
-                <tr class="transExpense">
-                  <td></td>
-                  <td>27 Sep</td>
-                  <td>shopping</td>
-                  <td>Buy Clothes</td>
-                  <td>- 27.00</td>
-                  <td>></td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="tableWrap">
+              <table id="transactionTable">
+                <tbody></tbody>
+              </table>
+            </div>
           </div>
         </section>
         <section class="right-section">
@@ -93,4 +78,38 @@
   </body>
 
   <script src="./classes/User.js"></script>
+  <script>
+    function updateTable() {
+      const expenses = JSON.parse(localStorage.getItem("expense")) || [];
+      const tableBody = document.querySelector("#transactionTable tbody");
+      tableBody.innerHTML = "";
+
+      expenses.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      expenses.slice(0, 10).forEach((expense) => {
+        const newRow = document.createElement("tr");
+
+        if (expense.income === "income") {
+          newRow.classList.add("transIncome");
+        } else if (expense.income === "expense") {
+          newRow.classList.add("transExpense");
+        }
+
+        newRow.innerHTML = `
+          <td></td>
+          <td>${expense.date}</td>
+          <td>${expense.category}</td>
+          <td>${expense.description}</td>
+          <td>${
+            expense.cost !== undefined && expense.cost !== null
+              ? expense.cost.toFixed(2)
+              : "0.00"
+          }</td>
+        `;
+        tableBody.appendChild(newRow);
+      });
+    }
+
+    updateTable();
+  </script>
 </html>

@@ -144,6 +144,8 @@ section {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  position: relative;
+  overflow-y: auto;
 }
 
 .recentTop {
@@ -156,6 +158,10 @@ section {
 .recentPayment hr {
   width: 100%;
   border-top: thin solid var(--sub-purple-color);
+}
+
+.tableWrap {
+  overflow-y: auto;
 }
 
 table {
