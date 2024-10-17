@@ -13,15 +13,16 @@ body {
   height: 100%;
   background-color: #ffffff;
   display: flex;
-  gap: 40px;
   margin: 0 auto;
   border-radius: 20px;
   overflow: hidden;
 }
 
-header,
 main {
-  padding: 24px 0;
+  width: -webkit-fill-available;
+  display: flex;
+  gap: 80px;
+  padding: 24px 40px;
 }
 
 header,
@@ -37,6 +38,7 @@ nav {
 
 header {
   border-right: 1px solid var(--main-purple-color);
+  padding: 24px 0;
 }
 
 #mobileMenuBtn,
@@ -83,12 +85,6 @@ header {
 }
 
 /* section */
-
-main {
-  width: -webkit-fill-available;
-  display: flex;
-  gap: 80px;
-}
 
 section {
   width: -webkit-fill-available;
@@ -200,7 +196,17 @@ tbody tr.transExpense td:first-child {
 
 .chartArea,
 .categoriesChart {
-  height: 100%;
+  flex: 1;
+  max-height: 50%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+canvas {
+  flex: 1;
+  width: 100%;
+  height: auto;
 }
 
 input {
@@ -215,8 +221,26 @@ input {
 #inputForm {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  /* justify-content: space-between; */
+}
+
+select,
+input {
+  padding: 5px;
+  border-radius: 5px;
+  border: thin solid var(--sub-purple-color);
 }
 
 button {
-  color: #000;
+  padding: 5px 15px;
+  border-radius: 5px;
+  color: var(--main-purple-color);
+  border: thin solid var(--sub-purple-color);
+}
+
+button[type="submit"] {
+  color: #fff;
+  background-color: var(--main-purple-color);
 }

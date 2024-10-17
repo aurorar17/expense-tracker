@@ -8,6 +8,10 @@
     <!-- CSS part -->
     <link rel="stylesheet" href="./styles/desktop.css" />
     <link rel="stylesheet" href="./styles/mobile.css" />
+
+    <!-- chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
   </head>
   <body>
     <div class="wrap">
@@ -20,16 +24,16 @@
           <h2 class="subTitle">Welcome Back, <span>User!</span></h2>
           <div class="current-box">
             <h3 class="transTitle">Current Balance</h3>
-            <h1>$ 350.00</h1>
+            <h1></h1>
           </div>
           <div class="monthlyExpense">
             <div class="MonthSummary income">
               <h3 class="transTitle">Monthly Income</h3>
-              <h2>$ 350.00</h2>
+              <h2></h2>
             </div>
             <div class="MonthSummary expense">
               <h3 class="transTitle">Monthly Expense</h3>
-              <h2>$ 150.00</h2>
+              <h2></h2>
             </div>
           </div>
           <div class="recentPayment">
@@ -50,13 +54,11 @@
         <section class="right-section">
           <div class="chartArea">
             <h2 class="subTitle">Daily Chart</h2>
-            <!-- add chart.js -->
-            <!-- daily bar chart -->
+            <canvas id="dailyChart"></canvas>
           </div>
           <div class="categoriesChart">
             <h2 class="subTitle">Categories</h2>
-            <!-- add chart.js -->
-            <!-- circle chart -->
+            <canvas id="categoryChart"></canvas>
           </div>
         </section>
       </main>
@@ -78,38 +80,7 @@
   </body>
 
   <script src="./classes/User.js"></script>
-  <script>
-    function updateTable() {
-      const expenses = JSON.parse(localStorage.getItem("expense")) || [];
-      const tableBody = document.querySelector("#transactionTable tbody");
-      tableBody.innerHTML = "";
 
-      expenses.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-      expenses.slice(0, 10).forEach((expense) => {
-        const newRow = document.createElement("tr");
-
-        if (expense.income === "income") {
-          newRow.classList.add("transIncome");
-        } else if (expense.income === "expense") {
-          newRow.classList.add("transExpense");
-        }
-
-        newRow.innerHTML = `
-          <td></td>
-          <td>${expense.date}</td>
-          <td>${expense.category}</td>
-          <td>${expense.description}</td>
-          <td>${
-            expense.cost !== undefined && expense.cost !== null
-              ? expense.cost.toFixed(2)
-              : "0.00"
-          }</td>
-        `;
-        tableBody.appendChild(newRow);
-      });
-    }
-
-    updateTable();
-  </script>
+  <script src="/functions/main-expense-function.js"></script>
+  <script src="/functions/chart.js"></script>
 </html>

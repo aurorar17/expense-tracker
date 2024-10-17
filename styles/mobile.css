@@ -22,6 +22,7 @@
     left: 0;
     padding: 0 5%;
     background-image: radial-gradient(circle, #d9d4e4, #d1cbdf);
+    z-index: 999;
   }
 
   .mobileBtn {
@@ -63,6 +64,7 @@
     flex-direction: column;
     padding-bottom: 100px;
     gap: 32px;
+    padding: 24px 0;
   }
 
   section {
@@ -135,5 +137,9 @@
     background-color: rgba(255, 255, 255, 0.5);
     box-shadow: 5px 5px 10px #ccc3dc;
     border-radius: 16px;
+  }
+
+  button {
+    padding: 2px 5px;
   }
 }
