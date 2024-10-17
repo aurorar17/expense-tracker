@@ -21,6 +21,8 @@
     top: 0;
     left: 0;
     padding: 0 5%;
+    background-image: radial-gradient(circle, #d9d4e4, #d1cbdf);
+    z-index: 999;
   }
 
   .mobileBtn {
@@ -60,6 +62,9 @@
   main {
     margin-top: 50px;
     flex-direction: column;
+    padding-bottom: 100px;
+    gap: 32px;
+    padding: 24px 0;
   }
 
   section {
@@ -67,16 +72,21 @@
   }
 
   .current-box {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
   }
 
   .recentPayment {
     gap: 10px;
   }
 
-  .transaction .dot {
-    width: 16px;
-    height: 16px;
+  .recentTop {
+    position: relative;
+  }
+
+  tbody tr td:first-child {
+    width: 18px;
+    height: 18px;
   }
 
   #mobileBottom {
@@ -86,10 +96,10 @@
     left: 0;
     width: 100%;
     height: 50px;
-    background-color: #ccc3dc;
     border-top: thin solid var(--sub-purple-color);
     line-height: 50px;
     justify-content: space-around;
+    background-image: radial-gradient(circle, #d9d4e4, #d1cbdf);
   }
 
   #mobileAddExpenseArea {
@@ -117,5 +127,19 @@
     background-color: rgba(255, 255, 255, 0.9);
     bottom: 50px;
     left: 0;
+  }
+
+  .monthlyExpense,
+  .recentPayment,
+  .chartArea,
+  .categoriesChart {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 5px 5px 10px #ccc3dc;
+    border-radius: 16px;
+  }
+
+  button {
+    padding: 2px 5px;
   }
 }

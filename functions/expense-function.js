@@ -47,6 +47,8 @@ function updateTable() {
   const tableBody = document.querySelector("#transactionTable tbody");
   tableBody.innerHTML = "";
 
+  expenses.sort((a, b) => new Date(b.date) - new Date(a.date));
+
   expenses.forEach((expense) => {
     const newRow = document.createElement("tr");
 
@@ -140,3 +142,4 @@ function updateTable() {
     tableBody.appendChild(newRow);
   });
 }
+
