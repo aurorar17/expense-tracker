@@ -7,6 +7,7 @@
 
     <!-- CSS part -->
     <link rel="stylesheet" href="/styles/desktop.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="wrap">
@@ -18,48 +19,8 @@
         <section>
           Expense List
           <div id="inputFormArea">
-            <!-- add the add-expense -->
-            <script>
-              fetch("/pages/add-expense/index.html")
-                .then((response) => response.text())
-                .then((data) => {
-                  document.querySelector("#inputFormArea").innerHTML = data;
-
-                  // 스크립트를 실행합니다.
-                  const script = document.createElement("script");
-                  script.textContent = `
-                    document.getElementById("inputForm").addEventListener("submit", (e) => {
-                      e.preventDefault();
-                      
-                      const income = document.querySelector("#income").value;
-                      const category = document.querySelector("#categoryList").value;
-                      const date = document.querySelector("input[type=date]").value;
-                      const description = document.querySelector("#description").value;
-                      const cost = parseFloat(document.querySelector("input[type=number]").value) || 0; // 기본값 0
-
-                      let expenses = JSON.parse(localStorage.getItem("expense")) || [];
-
-                      const newExpense = {
-                        income,
-                        category,
-                        date,
-                        description,
-                        cost, // 이미 숫자
-                      };
-
-                      expenses.push(newExpense);
-                      localStorage.setItem("expense", JSON.stringify(expenses));
-
-                      document.getElementById("inputForm").reset();
-
-                      alert("Expense added successfully!");
-
-                      // 테이블 업데이트
-                      updateTable();
-                    });
-                  `;
-                  document.body.appendChild(script);
-                });
+            <script type="module">
+              addExpense();
             </script>
           </div>
           <table id="transactionTable">
@@ -70,8 +31,7 @@
                 <th>Category</th>
                 <th>Description</th>
                 <th>Cost</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th colspan="2">Options</th>
               </tr>
             </thead>
             <tbody></tbody>
@@ -82,39 +42,12 @@
     </div>
   </body>
 
+  <script src="/utils//makeBtn.js"></script>
+  <script src="/functions/expense-function.js"></script>
   <script src="/utils/loadFile.js"></script>
-  <script>
-    function updateTable() {
-      const expenses = JSON.parse(localStorage.getItem("expense")) || [];
-      const tableBody = document.querySelector("#transactionTable tbody");
-      tableBody.innerHTML = "";
+  <script type="module" src="/modules/category_module.js"></script>
 
-      expenses.forEach((expense) => {
-        const newRow = document.createElement("tr");
-
-        if (expense.income === "income") {
-          newRow.classList.add("transIncome");
-        } else if (expense.income === "expense") {
-          newRow.classList.add("transExpense");
-        }
-
-        newRow.innerHTML = `
-          <td></td>
-          <td>${expense.date}</td>
-          <td>${expense.category}</td>
-          <td>${expense.description}</td>
-          <td>${
-            expense.cost !== undefined && expense.cost !== null
-              ? expense.cost.toFixed(2)
-              : "0.00"
-          }</td> <!-- NaN 체크 -->
-          <td><button>Edit</button></td> 
-          <td><button>Delete</button></td>
-        `;
-        tableBody.appendChild(newRow);
-      });
-    }
-
+  <script type="module">
     updateTable();
   </script>
 </html>

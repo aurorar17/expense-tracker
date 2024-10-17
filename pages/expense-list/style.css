@@ -1,0 +1,43 @@
+.popover {
+  z-index: 100;
+  position: absolute;
+
+  display: none;
+  flex-direction: column;
+
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  font-size: 1.2rem;
+
+  h3 {
+    margin-bottom: 1rem;
+    color: purple;
+  }
+
+  .category-list {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+
+    label {
+      text-align: left;
+    }
+
+    .category-value {
+      width: fit-content;
+
+      color: #000;
+    }
+  }
+
+  button {
+    margin-top: 1rem;
+    background-color: aliceblue;
+  }
+}
+
+.popover.show {
+  display: flex;
+}

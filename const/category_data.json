@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "Food",
+    "description": "Expenses for groceries and dining out"
+  },
+  {
+    "id": 2,
+    "name": "Transportation",
+    "description": "Public transport, fuel, and other travel expenses"
+  },
+  {
+    "id": 3,
+    "name": "Housing",
+    "description": "Rent, mortgage, and home maintenance costs"
+  },
+  {
+    "id": 4,
+    "name": "Utilities",
+    "description": "Electricity, water, gas, and other utility bills"
+  },
+  {
+    "id": 5,
+    "name": "Healthcare",
+    "description": "Medical expenses, insurance, and medications"
+  },
+  {
+    "id": 6,
+    "name": "Entertainment",
+    "description": "Leisure activities such as movies, concerts, and subscriptions"
+  },
+  {
+    "id": 7,
+    "name": "Education",
+    "description": "Tuition fees, courses, books, and learning materials"
+  },
+  {
+    "id": 8,
+    "name": "Clothing",
+    "description": "Expenses on clothes, shoes, and accessories"
+  },
+  {
+    "id": 9,
+    "name": "Savings",
+    "description": "Money set aside for future use or emergencies"
+  },
+  {
+    "id": 10,
+    "name": "Miscellaneous",
+    "description": "Other expenses that don't fit into the defined categories"
+  }
+]

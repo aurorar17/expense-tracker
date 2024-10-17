@@ -1,13 +1,4 @@
-<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Expense</title>
-
-    <!-- CSS part -->
-    <link rel="stylesheet" href="/styles/desktop.css" />
-  </head>
   <body>
     <section>
       <form id="inputForm">
@@ -15,13 +6,7 @@
           <option value="income">+ Income</option>
           <option value="expense">- Expense</option>
         </select>
-        <select id="categoryList">
-          <option value="cate1">Cate1</option>
-          <option value="cate2">Cate2</option>
-          <option value="cate3">Cate3</option>
-          <option value="cate4">Cate4</option>
-          <option value="cate5">Cate5</option>
-        </select>
+        <select id="categoryList"></select>
         <input type="date" required />
         <input
           type="text"
@@ -39,34 +24,4 @@
       </form>
     </section>
   </body>
-
-  <script>
-    document.getElementById("inputForm").addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const income = document.querySelector("#income").value;
-      const category = document.querySelector("#categoryList").value;
-      const date = document.querySelector("input[type=date]").value;
-      const description = document.querySelector("#description").value;
-      const cost = document.querySelector("input[type=number]").value;
-
-      let expenses = JSON.parse(localStorage.getItem("expense")) || [];
-
-      const newExpense = {
-        income,
-        category,
-        date,
-        description,
-        cost: parseFloat(cost), // cost -> number
-      };
-
-      expenses.push(newExpense);
-
-      localStorage.setItem("expense", JSON.stringify(expenses));
-
-      document.getElementById("inputForm").reset();
-
-      alert("Expense added successfully!");
-    });
-  </script>
 </html>
