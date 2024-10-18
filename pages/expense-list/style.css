@@ -1,3 +1,11 @@
+.expense-list-container {
+  gap: 2rem;
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
 .popover {
   z-index: 100;
   position: absolute;
@@ -6,13 +14,14 @@
   flex-direction: column;
 
   background-color: white;
+  margin-top: 1rem;
   padding: 1rem;
+  border-radius: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   font-size: 1.2rem;
 
   h3 {
-    margin-bottom: 1rem;
     color: purple;
   }
 
@@ -20,6 +29,8 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 1rem;
+
+    margin-top: 1rem;
 
     label {
       text-align: left;
@@ -40,4 +51,65 @@
 
 .popover.show {
   display: flex;
+}
+
+.row-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1rem;
+  margin: 0 4rem 1rem 0;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  border-radius: 1rem;
+
+  font-size: 1.5rem;
+  color: var(--default-black);
+
+  .left-side {
+    display: grid;
+    grid-template-columns: 5rem 60rem 10rem;
+    align-items: center;
+
+    .category-img {
+      margin-right: 1rem;
+      width: 3rem;
+      height: 3rem;
+    }
+
+    .content-container {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+
+      .title-container {
+        .date {
+          font-size: 1.2rem;
+        }
+      }
+
+      .description {
+        font-size: 1.3rem;
+      }
+    }
+
+    .expense-price {
+      margin-left: 3rem;
+
+      &.income {
+        color: var(--green-to-income);
+      }
+
+      &.expense {
+        color: var(--red-to-expense);
+      }
+    }
+  }
+
+  .option-btn {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
 }

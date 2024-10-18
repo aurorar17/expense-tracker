@@ -13,6 +13,7 @@ body {
   height: 100%;
   background-color: #ffffff;
   display: flex;
+  gap: 4rem;
   margin: 0 auto;
   border-radius: 20px;
   overflow: hidden;
@@ -91,7 +92,7 @@ section {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 4rem;
 }
 
 .current-box {

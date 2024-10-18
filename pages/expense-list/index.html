@@ -17,26 +17,14 @@
       </header>
 
       <main>
-        <section>
-          Expense List
+        <section class="expense-list-container">
+          <h1>Expense List</h1>
           <div id="inputFormArea">
             <script type="module">
               addExpense();
             </script>
           </div>
-          <table id="transactionTable">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Date</th>
-                <th>Category</th>
-                <th>Description</th>
-                <th>Cost</th>
-                <th colspan="2">Options</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
+          <div id="transactionTable"></div>
           <ul></ul>
         </section>
       </main>
