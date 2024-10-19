@@ -54,8 +54,10 @@ function updateTable() {
 
     if (expense.income === "income") {
       newRow.classList.add("transIncome");
+      expense.cost = `<span>+</span> ${expense.cost.toFixed(2)}`
     } else if (expense.income === "expense") {
       newRow.classList.add("transExpense");
+      expense.cost = `<span>-</span> ${expense.cost.toFixed(2)}`
     }
 
     let deleteBtn = btCreator("Delete");
@@ -131,11 +133,7 @@ function updateTable() {
         <td>${expense.date}</td>
         <td>${expense.category}</td>
         <td>${expense.description}</td>
-        <td>${
-          expense.cost !== undefined && expense.cost !== null
-            ? expense.cost.toFixed(2)
-            : "0.00"
-        }</td>
+        <td class="cost">${expense.cost}</td>
       `;
     newRow.append(editTd, deleteTd);
     tableBody.append(editModal);

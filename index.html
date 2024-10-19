@@ -12,6 +12,14 @@
     <!-- chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+    <!-- jQuery -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </head>
   <body>
     <div class="wrap">
@@ -28,11 +36,11 @@
           </div>
           <div class="monthlyExpense">
             <div class="MonthSummary income">
-              <h3 class="transTitle">Monthly Income</h3>
+              <h3 class="transTitle">Total Income</h3>
               <h2></h2>
             </div>
             <div class="MonthSummary expense">
-              <h3 class="transTitle">Monthly Expense</h3>
+              <h3 class="transTitle">Total Expense</h3>
               <h2></h2>
             </div>
           </div>
@@ -54,11 +62,15 @@
         <section class="right-section">
           <div class="chartArea">
             <h2 class="subTitle">Daily Chart</h2>
-            <canvas id="dailyChart"></canvas>
+            <div class="canvas-area">
+              <canvas id="dailyChart"></canvas>
+            </div>
           </div>
           <div class="categoriesChart">
-            <h2 class="subTitle">Categories</h2>
-            <canvas id="categoryChart"></canvas>
+            <h2 class="subTitle">Categories <small> - About expense</small></h2>
+            <div class="canvas-area">
+              <canvas id="categoryChart"></canvas>
+            </div>
           </div>
         </section>
       </main>
@@ -71,16 +83,22 @@
           <!-- popup // fetch the add-expense html -->
           <!-- When Click the button of the "add-expense", the popup has a class "add-popup" -->
           <!-- I'll make this function -->
+          <div id="inputFormArea">
+            <script type="module">
+              addExpense();
+            </script>
+          </div>
         </div>
         <div class="editCategory">
-          <a href="./pages/category-list/index.html">Categories</a>
+          <a href="./pages/expense-list/index.html">Expense List</a>
         </div>
       </div>
     </div>
   </body>
 
   <script src="./classes/User.js"></script>
-
   <script src="/functions/main-expense-function.js"></script>
   <script src="/functions/chart.js"></script>
+  <script src="/functions/expense-function.js"></script>
+  <script src="/utils/loadFile.js"></script>
 </html>
