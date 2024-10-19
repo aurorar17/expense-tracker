@@ -4,6 +4,45 @@
   h1 {
     font-size: 2rem;
   }
+
+  .filter-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+
+    color: var(--default-black);
+    font-size: 1.2rem;
+
+    .filter {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .filter-card-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+
+      width: 100%;
+
+      .filter-card {
+        padding: 1rem;
+        border-radius: 1rem;
+        box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+          rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+
+        font-size: 1.5rem;
+
+        .amount {
+          display: flex;
+          justify-content: flex-end;
+
+          font-size: 2rem;
+        }
+      }
+    }
+  }
 }
 
 .popover {
@@ -59,7 +98,7 @@
   justify-content: space-between;
 
   padding: 1rem;
-  margin: 0 4rem 1rem 0;
+  margin-bottom: 1rem;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
     rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
   border-radius: 1rem;
@@ -95,7 +134,7 @@
     }
 
     .expense-price {
-      margin-left: 3rem;
+      text-align: right;
 
       &.income {
         color: var(--green-to-income);

@@ -24,6 +24,32 @@
               addExpense();
             </script>
           </div>
+          <div class="filter-container">
+            <div class="filter">
+              Filter:
+              <select id="filter-options" onchange="changeFilterDate()">
+                <option value="total">Total</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+              </select>
+            </div>
+            <div class="filter-card-wrapper">
+              <div class="filter-card">
+                Income
+                <div class="amount">
+                  $
+                  <div id="income-amount"></div>
+                </div>
+              </div>
+              <div class="filter-card">
+                Expense
+                <div class="amount">
+                  $
+                  <div id="expense-amount"></div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div id="transactionTable"></div>
           <ul></ul>
         </section>
@@ -36,6 +62,9 @@
   <script src="/utils/loadFile.js"></script>
 
   <script type="module">
-    updateTable();
+    let expenses = JSON.parse(localStorage.getItem("expense")) || [];
+
+    updateTable(expenses);
+    updateFilterAmount("total");
   </script>
 </html>
