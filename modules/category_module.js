@@ -4,7 +4,12 @@ export const categories = new Map();
 
 const mapFiller = (data) => {
   for (let item of data) {
-    let tmpProduct = new Category(item.id, item.name, item.description);
+    let tmpProduct = new Category(
+      item.id,
+      item.name,
+      item.description,
+      item.limit
+    );
 
     const option = document.createElement("option");
     option.innerText = tmpProduct.name;
