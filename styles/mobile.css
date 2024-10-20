@@ -1,3 +1,17 @@
+@media screen and (max-width: 1024px) {
+  main {
+    gap: 40px;
+    flex-direction: column;
+  }
+  tbody tr td:first-child {
+    width: 18px;
+    height: 18px;
+  }
+
+  canvas {
+    min-height: 300px;
+  }
+}
 @media screen and (max-width: 768px) {
   body {
     padding: 0;
@@ -62,7 +76,7 @@
   main {
     margin-top: 50px;
     flex-direction: column;
-    padding-bottom: 100px;
+    margin-bottom: 80px;
     gap: 32px;
     padding: 24px 0;
   }
@@ -84,9 +98,9 @@
     position: relative;
   }
 
-  tbody tr td:first-child {
-    width: 18px;
-    height: 18px;
+  .categoriesChart canvas {
+    min-height: 300px;
+    width: 100%;
   }
 
   #mobileBottom {
@@ -100,6 +114,16 @@
     line-height: 50px;
     justify-content: space-around;
     background-image: radial-gradient(circle, #d9d4e4, #d1cbdf);
+  }
+
+  #mobileBottom a {
+    font-size: 1.2rem;
+  }
+
+  .user,
+  .editCategory {
+    width: 100px;
+    text-align: center;
   }
 
   #mobileAddExpenseArea {
@@ -117,16 +141,38 @@
     line-height: 60px;
     font-size: 3.5rem;
     box-shadow: 2px 2px 5px var(--main-purple-color);
+    z-index: 9;
   }
 
   #mobileAddExpenseArea.add-popup {
     display: block;
     position: absolute;
     width: 100%;
-    height: calc(100vh - 50px);
+    height: calc(100vh - 100px);
     background-color: rgba(255, 255, 255, 0.9);
     bottom: 50px;
     left: 0;
+    padding: 50px;
+    z-index: 2;
+  }
+
+  #mobileAddExpenseArea.add-popup {
+    #inputForm {
+      gap: 15px;
+    }
+    select,
+    input,
+    button {
+      width: 100%;
+    }
+    button {
+      padding: 10px;
+    }
+  }
+
+  .popup-close-btn {
+    text-align: right;
+    font-size: 2.4rem;
   }
 
   .monthlyExpense,

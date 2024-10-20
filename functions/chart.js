@@ -79,16 +79,21 @@ function generateChart() {
     });
 
     // Category Chart
+    // Only calculate about expense
+    // If the expense.income === "income", it's ignore.
     const categoryData = {};
     expenses.forEach(expense => {
-        const category = expense.category;
-        const cost = expense.cost;
-
-        if (categoryData[category]) {
-            categoryData[category] += cost;
-        } else {
-            categoryData[category] = cost;
+        if (expense.income === "expense") {
+            const category = expense.category;
+            const cost = expense.cost;
+    
+            if (categoryData[category]) {
+                categoryData[category] += cost;
+            } else {
+                categoryData[category] = cost;
+            }
         }
+        
     });
 
     const categoryLabels = Object.keys(categoryData);
@@ -103,17 +108,23 @@ function generateChart() {
                 label: 'Category Expenses',
                 data: categoriesCost,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
-                    'rgba(75, 192, 192, 0.6)',
-                    'rgba(153, 102, 255, 0.6)',
-                    'rgba(255, 159, 64, 0.6)',
+                    'rgba(255, 99, 132, 0.6)',  
+                    'rgba(54, 162, 235, 0.6)',  
+                    'rgba(255, 206, 86, 0.6)',  
+                    'rgba(75, 192, 192, 0.6)',  
+                    'rgba(153, 102, 255, 0.6)', 
+                    'rgba(255, 159, 64, 0.6)',  
+                    'rgba(201, 203, 207, 0.6)', 
+                    'rgba(130, 105, 220, 0.6)', 
+                    'rgba(255, 182, 193, 0.6)', 
+                    'rgba(101, 178, 255, 0.6)', 
                 ],
+                
             }]
         },
         options: {
             responsive: true, 
+            maintainAspectRatio: true,
             plugins: {
                 legend: {
                     position: 'bottom',

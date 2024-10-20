@@ -1,3 +1,9 @@
+// change the date format yyyy-mm-dd -> mm/dd
+function formatDate(dateStr) {
+  const date = new Date(dateStr);
+  return `${String(date.getMonth() + 1).padStart(2, '0')}/${String(date.getDate()).padStart(2, '0')}`;
+}
+
 function updateTable() {
     const expenses = JSON.parse(localStorage.getItem("expense")) || [];
     const tableBody = document.querySelector("#transactionTable tbody");
@@ -5,25 +11,23 @@ function updateTable() {
 
     expenses.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    expenses.slice(0, 10).forEach((expense) => {
+    expenses.slice(0, 15).forEach((expense) => {
       const newRow = document.createElement("tr");
 
       if (expense.income === "income") {
         newRow.classList.add("transIncome");
+        expense.cost = `<span>+ $ ${expense.cost.toFixed(2)}</span>`
       } else if (expense.income === "expense") {
         newRow.classList.add("transExpense");
+        expense.cost = `<span>- $ ${expense.cost.toFixed(2)}</span>`
       }
 
       newRow.innerHTML = `
         <td></td>
-        <td>${expense.date}</td>
+        <td>${formatDate(expense.date)}</td>
         <td>${expense.category}</td>
         <td>${expense.description}</td>
-        <td>${
-          expense.cost !== undefined && expense.cost !== null
-            ? expense.cost.toFixed(2)
-            : "0.00"
-        }</td>
+        <td class="cost">${expense.cost}</td>
       `;
       tableBody.appendChild(newRow);
     });
@@ -67,17 +71,26 @@ function updateBalances() {
       .reduce((sum, expense) => sum + (expense.cost || 0), 0);
   
     document.querySelector(".current-box h1").textContent = `$ ${totalBalance.toFixed(2)}`;
-    document.querySelector(".monthlyExpense .income h2").textContent = `$ ${currentMonthIncome.toFixed(2)}`;
-    document.querySelector(".monthlyExpense .expense h2").textContent = `$ ${currentMonthExpense.toFixed(2)}`;
+
+    // If we want to use the filter again, We can change the value to "currentMonthIncome" and uncomment.
+    document.querySelector(".monthlyExpense .income h2").textContent = `+ $ ${currentMonthIncome.toFixed(2)}`;
+    document.querySelector(".monthlyExpense .expense h2").textContent = `- $ ${currentMonthExpense.toFixed(2)}`;
   }
   
-  // 함수를 호출하여 값을 업데이트
+  
   updateBalances();
   
-
-
-
-
   updateTable();
 
+
+
+  // Mobile bottom area
+  $(".add-expense").click(function(){
+    $("#mobileAddExpenseArea").toggleClass("add-popup")
+    if ($("#mobileAddExpenseArea").hasClass("add-popup")) {
+      $(".add-expense").html("&#215;"); 
+  } else {
+      $(".add-expense").html("+");
+  }
+  })  
 

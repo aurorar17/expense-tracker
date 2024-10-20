@@ -13,9 +13,10 @@ body {
   height: 100%;
   background-color: #ffffff;
   display: flex;
+  gap: 4rem;
   margin: 0 auto;
-  border-radius: 20px;
-  overflow: hidden;
+  border-radius: 20;
+  overflow: auto;
 }
 
 main {
@@ -23,6 +24,7 @@ main {
   display: flex;
   gap: 80px;
   padding: 24px 40px;
+  overflow-y: auto;
 }
 
 header,
@@ -91,7 +93,14 @@ section {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 4rem;
+}
+
+#currentMonth {
+  font-size: 4rem;
+  margin-left: 0.5rem;
+  font-family: "Coustard", serif;
+  border-bottom: thin solid var(--main-purple-color);
 }
 
 .current-box {
@@ -131,9 +140,11 @@ section {
 
 .MonthSummary.income h2 {
   color: var(--green-to-income);
+  font-size: 2rem;
 }
 .MonthSummary.expense h2 {
   color: var(--red-to-expense);
+  font-size: 2rem;
 }
 
 .recentPayment {
@@ -142,6 +153,7 @@ section {
   gap: 20px;
   position: relative;
   overflow-y: auto;
+  scrollbar-width: none;
 }
 
 .recentTop {
@@ -158,24 +170,41 @@ section {
 
 .tableWrap {
   overflow-y: auto;
+  scrollbar-width: none;
 }
 
 table {
-  table-layout: fixed;
+  table-layout: auto;
   width: 100%;
+  border-collapse: collapse;
 }
 
-tr {
-  margin-bottom: 10px;
-  text-align: center;
+#transactionTable {
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+th {
+  background-color: var(--main-purple-color);
+  padding: 5px;
+  color: #fff;
+  font-size: 1.2rem;
 }
 
 tbody tr {
   width: 100%;
+  text-align: center;
+  border-top: 10px solid transparent;
 }
 
 th:first-child {
   width: 24px;
+}
+
+td {
+  /* padding-bottom: 10px; */
+  width: auto;
+  font-size: 1.2rem;
 }
 
 tbody tr td:first-child {
@@ -185,6 +214,7 @@ tbody tr td:first-child {
   aspect-ratio: 1;
   border-radius: 100%;
   overflow: hidden;
+  align-self: center;
 }
 
 tbody tr.transIncome td:first-child {
@@ -192,6 +222,16 @@ tbody tr.transIncome td:first-child {
 }
 tbody tr.transExpense td:first-child {
   background-color: var(--red-to-expense);
+}
+.cost {
+  white-space: nowrap;
+}
+
+.transIncome span {
+  color: var(--green-to-income);
+}
+.transExpense span {
+  color: var(--red-to-expense);
 }
 
 .chartArea,
@@ -203,10 +243,27 @@ tbody tr.transExpense td:first-child {
   flex-direction: column;
 }
 
+.chartArea .subTitle,
+.categoriesChart .subTitle {
+  padding-bottom: 20px;
+}
+
+.canvas-area {
+  height: 100%;
+}
+
 canvas {
   flex: 1;
+  margin: 0 auto;
+}
+.chartArea canvas {
   width: 100%;
   height: auto;
+}
+.categoriesChart canvas {
+  height: calc(100% - 43px);
+  /* min-height: 300px; */
+  width: auto;
 }
 
 input {
