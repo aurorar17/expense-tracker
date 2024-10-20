@@ -11,15 +11,15 @@ function updateTable() {
 
     expenses.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    expenses.slice(0, 20).forEach((expense) => {
+    expenses.slice(0, 15).forEach((expense) => {
       const newRow = document.createElement("tr");
 
       if (expense.income === "income") {
         newRow.classList.add("transIncome");
-        expense.cost = `<span>+</span> ${expense.cost.toFixed(2)}`
+        expense.cost = `<span>+ $ ${expense.cost.toFixed(2)}</span>`
       } else if (expense.income === "expense") {
         newRow.classList.add("transExpense");
-        expense.cost = `<span>-</span> ${expense.cost.toFixed(2)}`
+        expense.cost = `<span>- $ ${expense.cost.toFixed(2)}</span>`
       }
 
       newRow.innerHTML = `
@@ -54,27 +54,27 @@ function updateBalances() {
     const totalBalance = totalIncome - totalExpense;
   
     // Filtering of current Month
-    // const currentMonthExpenses = expenses.filter((expense) => {
-    //   const expenseDate = new Date(expense.date);
-    //   return (
-    //     expenseDate.getMonth() === currentMonth && expenseDate.getFullYear() === currentYear
-    //   );
-    // });
+    const currentMonthExpenses = expenses.filter((expense) => {
+      const expenseDate = new Date(expense.date);
+      return (
+        expenseDate.getMonth() === currentMonth && expenseDate.getFullYear() === currentYear
+      );
+    });
   
     // calculate of current Income & Expense according to Filtering
-    // const currentMonthIncome = currentMonthExpenses
-    //   .filter((expense) => expense.income === "income")
-    //   .reduce((sum, income) => sum + (income.cost || 0), 0);
+    const currentMonthIncome = currentMonthExpenses
+      .filter((expense) => expense.income === "income")
+      .reduce((sum, income) => sum + (income.cost || 0), 0);
   
-    // const currentMonthExpense = currentMonthExpenses
-    //   .filter((expense) => expense.income === "expense")
-    //   .reduce((sum, expense) => sum + (expense.cost || 0), 0);
+    const currentMonthExpense = currentMonthExpenses
+      .filter((expense) => expense.income === "expense")
+      .reduce((sum, expense) => sum + (expense.cost || 0), 0);
   
     document.querySelector(".current-box h1").textContent = `$ ${totalBalance.toFixed(2)}`;
 
-    // If we want to use the filter again, We can change the value to "currentIncome" and uncomment.
-    document.querySelector(".monthlyExpense .income h2").textContent = `+ $ ${totalIncome.toFixed(2)}`;
-    document.querySelector(".monthlyExpense .expense h2").textContent = `- $ ${totalExpense.toFixed(2)}`;
+    // If we want to use the filter again, We can change the value to "currentMonthIncome" and uncomment.
+    document.querySelector(".monthlyExpense .income h2").textContent = `+ $ ${currentMonthIncome.toFixed(2)}`;
+    document.querySelector(".monthlyExpense .expense h2").textContent = `- $ ${currentMonthExpense.toFixed(2)}`;
   }
   
   

@@ -11,3 +11,10 @@ const tdCreator = (node) => {
 
   return td;
 };
+
+const divCreator = (node) => {
+  let div = document.createElement("div");
+  div.append(node);
+
+  return div;
+};

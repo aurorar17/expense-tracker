@@ -1,10 +1,15 @@
 @media screen and (max-width: 1024px) {
   main {
     gap: 40px;
+    flex-direction: column;
   }
   tbody tr td:first-child {
     width: 18px;
     height: 18px;
+  }
+
+  canvas {
+    min-height: 300px;
   }
 }
 @media screen and (max-width: 768px) {

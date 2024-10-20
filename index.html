@@ -29,18 +29,27 @@
 
       <main>
         <section class="left-section">
-          <h2 class="subTitle">Welcome Back, <span>User!</span></h2>
+          <h2 class="subTitle currentMonth">
+            Look at your Expense of
+            <span id="currentMonth">
+              <script>
+                document.write(
+                  new Date().toLocaleString("en-us", { month: "long" })
+                );
+              </script>
+            </span>
+          </h2>
           <div class="current-box">
             <h3 class="transTitle">Current Balance</h3>
             <h1></h1>
           </div>
           <div class="monthlyExpense">
             <div class="MonthSummary income">
-              <h3 class="transTitle">Total Income</h3>
+              <h3 class="transTitle">Monthly Income</h3>
               <h2></h2>
             </div>
             <div class="MonthSummary expense">
-              <h3 class="transTitle">Total Expense</h3>
+              <h3 class="transTitle">M Expense</h3>
               <h2></h2>
             </div>
           </div>
