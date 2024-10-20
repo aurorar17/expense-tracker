@@ -13,8 +13,9 @@ body {
   height: 100%;
   background-color: #ffffff;
   display: flex;
+  gap: 4rem;
   margin: 0 auto;
-  border-radius: 20px;
+  border-radius: 20;
   overflow: auto;
 }
 
@@ -241,8 +242,7 @@ canvas {
   flex: 1;
   margin: 0 auto;
 }
-
-.chartArea canvas {
+g .chartArea canvas {
   width: 100%;
   height: auto;
 }
