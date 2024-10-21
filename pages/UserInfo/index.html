@@ -38,7 +38,7 @@
         </label>
         <div class="user-info">
           <a href="./pages/UserInfo/index.html">
-            <img src="./projects/expense-tracker-main/img/undraw_profile.svg" alt="undraw_profile" />
+            <img src="./img/undraw_profile.svg" alt="undraw_profile" />
             <h3 class="user-info-h3">Welcome back, [User Name]</h3>
           </a>
         </div>
@@ -48,7 +48,6 @@
         <!--da qui 1-->
 
         <div class="menu">
-
           <a href="#" id="userInfoLink">
             <svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -202,6 +201,7 @@
         </div>
       </section>
     </main>
+  </div>
 
 
 
@@ -209,47 +209,47 @@
 
 
 
-    <script>
-      let userName = "John";
-      document.querySelectorAll('h3, h2').forEach(function (element) {
-        element.innerHTML = element.innerHTML.replace("[User Name]", userName);
-      });
-      document.getElementById("userInfoLink").addEventListener("click", function (event) {
-        event.preventDefault(); // Preveniamo il comportamento predefinito del link
+  <script>
+    let userName = "John";
+    document.querySelectorAll('h3, h2').forEach(function (element) {
+      element.innerHTML = element.innerHTML.replace("[User Name]", userName);
+    });
+    document.getElementById("userInfoLink").addEventListener("click", function (event) {
+      event.preventDefault(); // Preveniamo il comportamento predefinito del link
 
-        // Mostra la sezione nascosta
-        const userInfoSection = document.getElementById("userInfoSection");
+      // Mostra la sezione nascosta
+      const userInfoSection = document.getElementById("userInfoSection");
 
-        if (userInfoSection.style.display === "none" || userInfoSection.style.display === "") {
-          userInfoSection.style.display = "block";
-        } else {
-          userInfoSection.style.display = "none"; // Puoi nasconderla nuovamente se vuoi che sia una sezione a scomparsa
-        }
-      });
-
-      document.getElementById("bankInformationLink").addEventListener("click", function (event) {
-        event.preventDefault(); // Preveniamo il comportamento predefinito del link
-
-        // Mostra la sezione nascosta
-        const userInfoSection = document.getElementById("bankInformationSection");
-
-        if (userInfoSection.style.display === "none" || userInfoSection.style.display === "") {
-          userInfoSection.style.display = "block";
-        } else {
-          userInfoSection.style.display = "none"; // Puoi nasconderla nuovamente se vuoi che sia una sezione a scomparsa
-        }
-      });
-
-      function toggleDefinition(icon) {
-        // Trova la definizione sotto il td della riga cliccata
-        const definition = icon.parentElement.querySelector('.definition');
-        if (definition.style.display === 'none' || definition.style.display === '') {
-          definition.style.display = 'block'; // Mostra la definizione
-        } else {
-          definition.style.display = 'none'; // Nascondi la definizione
-        }
+      if (userInfoSection.style.display === "none" || userInfoSection.style.display === "") {
+        userInfoSection.style.display = "block";
+      } else {
+        userInfoSection.style.display = "none"; // Puoi nasconderla nuovamente se vuoi che sia una sezione a scomparsa
       }
-    </script>
+    });
+
+    document.getElementById("bankInformationLink").addEventListener("click", function (event) {
+      event.preventDefault(); // Preveniamo il comportamento predefinito del link
+
+      // Mostra la sezione nascosta
+      const userInfoSection = document.getElementById("bankInformationSection");
+
+      if (userInfoSection.style.display === "none" || userInfoSection.style.display === "") {
+        userInfoSection.style.display = "block";
+      } else {
+        userInfoSection.style.display = "none"; // Puoi nasconderla nuovamente se vuoi che sia una sezione a scomparsa
+      }
+    });
+
+    function toggleDefinition(icon) {
+      // Trova la definizione sotto il td della riga cliccata
+      const definition = icon.parentElement.querySelector('.definition');
+      if (definition.style.display === 'none' || definition.style.display === '') {
+        definition.style.display = 'block'; // Mostra la definizione
+      } else {
+        definition.style.display = 'none'; // Nascondi la definizione
+      }
+    }
+  </script>
 </body>
 
 <script src="./classes/User.js"></script>

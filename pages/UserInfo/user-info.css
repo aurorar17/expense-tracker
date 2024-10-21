@@ -61,36 +61,8 @@ tr:nth-child(even) {
 
 /* Stile per schermi piccoli (mobile) */
 @media only screen and (max-width: 600px) {
-
-    table,
-    thead,
-    tbody,
-    th,
-    td,
-    tr {
-        display: block;
-    }
-
-    thead tr {
-        display: none;
-        /* Nascondi l'intestazione */
-    }
-
-    tr {
-        margin-bottom: 15px;
-    }
-
-    td {
-        padding-left: 50%;
-        position: relative;
-        text-align: left;
-    }
-
-    td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        top: 10px;
-        font-weight: bold;
+    .wrap {
+        flex-direction: column;
+        height: 50%;
     }
 }
