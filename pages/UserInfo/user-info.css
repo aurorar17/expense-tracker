@@ -1,0 +1,96 @@
+#user-info-h1 {
+    color: #5a1cdf;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.user-info-h3 {
+    color: #5a1cdf;
+    font-size: 15px;
+    font-weight: bold;
+    padding-left: 5%;
+}
+
+h4 {
+    background-color: #f2f2f2;
+    padding: 3%;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #5A1CDF;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.definition {
+    display: none;
+    /* Inizialmente nascondi le definizioni */
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    margin-top: 5px;
+}
+
+.info-icon {
+    cursor: pointer;
+    /* Indica che l'icona è cliccabile */
+    margin-left: 10px;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+/* Stile per schermi piccoli (mobile) */
+@media only screen and (max-width: 600px) {
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    thead tr {
+        display: none;
+        /* Nascondi l'intestazione */
+    }
+
+    tr {
+        margin-bottom: 15px;
+    }
+
+    td {
+        padding-left: 50%;
+        position: relative;
+        text-align: left;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        font-weight: bold;
+    }
+}

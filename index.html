@@ -1,113 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Expense Tracker</title>
 
-    <!-- CSS part -->
-    <link rel="stylesheet" href="./styles/desktop.css" />
-    <link rel="stylesheet" href="./styles/mobile.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Tracker</title>
 
-    <!-- chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+  <!-- CSS part -->
+  <link rel="stylesheet" href="./styles/desktop.css" />
+  <link rel="stylesheet" href="./styles/mobile.css" />
 
-    <!-- jQuery -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-  </head>
-  <body>
-    <div class="wrap">
-      <header>
-        <script src="/classes/Header.js"></script>
-      </header>
+  <!-- chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
-      <main>
-        <section class="left-section">
-          <h2 class="subTitle currentMonth">
-            Look at your Expense of
-            <span id="currentMonth">
-              <script>
-                document.write(
-                  new Date().toLocaleString("en-us", { month: "long" })
-                );
-              </script>
-            </span>
-          </h2>
-          <div class="current-box">
-            <h3 class="transTitle">Current Balance</h3>
-            <h1></h1>
-          </div>
-          <div class="monthlyExpense">
-            <div class="MonthSummary income">
-              <h3 class="transTitle">Monthly Income</h3>
-              <h2></h2>
-            </div>
-            <div class="MonthSummary expense">
-              <h3 class="transTitle">M Expense</h3>
-              <h2></h2>
-            </div>
-          </div>
-          <div class="recentPayment">
-            <div class="recentTop">
-              <h2 class="subTitle">Recent Payments</h2>
-              <h3>
-                <a href="/pages/expense-list/index.html"> + View All </a>
-              </h3>
-            </div>
-            <hr />
-            <div class="tableWrap">
-              <table id="transactionTable">
-                <tbody></tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-        <section class="right-section">
-          <div class="chartArea">
-            <h2 class="subTitle">Daily Chart</h2>
-            <div class="canvas-area">
-              <canvas id="dailyChart"></canvas>
-            </div>
-          </div>
-          <div class="categoriesChart">
-            <h2 class="subTitle">Categories <small> - About expense</small></h2>
-            <div class="canvas-area">
-              <canvas id="categoryChart"></canvas>
-            </div>
-          </div>
-        </section>
-      </main>
-      <div id="mobileBottom">
-        <div class="user">
-          <a href="./pages/UserInfo/index.html"> User Info </a>
-        </div>
-        <div class="add-expense">+</div>
-        <div id="mobileAddExpenseArea">
-          <!-- popup // fetch the add-expense html -->
-          <!-- When Click the button of the "add-expense", the popup has a class "add-popup" -->
-          <!-- I'll make this function -->
-          <div id="inputFormArea">
-            <script type="module">
-              addExpense();
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <script src="/classes/Header.js"></script>
+    </header>
+
+    <main>
+      <section class="left-section">
+        <h2 class="subTitle currentMonth">
+          Look at your Expense of
+          <span id="currentMonth">
+            <script>
+              document.write(
+                new Date().toLocaleString("en-us", { month: "long" })
+              );
             </script>
+          </span>
+        </h2>
+        <div class="current-box">
+          <h3 class="transTitle">Current Balance</h3>
+          <h1></h1>
+        </div>
+        <div class="monthlyExpense">
+          <div class="MonthSummary income">
+            <h3 class="transTitle">Monthly Income</h3>
+            <h2></h2>
+          </div>
+          <div class="MonthSummary expense">
+            <h3 class="transTitle">M Expense</h3>
+            <h2></h2>
           </div>
         </div>
-        <div class="editCategory">
-          <a href="./pages/expense-list/index.html">Expense List</a>
+        <div class="recentPayment">
+          <div class="recentTop">
+            <h2 class="subTitle">Recent Payments</h2>
+            <h3>
+              <a href="/pages/expense-list/index.html"> + View All </a>
+            </h3>
+          </div>
+          <hr />
+          <div class="tableWrap">
+            <table id="transactionTable">
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <section class="right-section">
+        <div class="chartArea">
+          <h2 class="subTitle">Daily Chart</h2>
+          <div class="canvas-area">
+            <canvas id="dailyChart"></canvas>
+          </div>
+        </div>
+        <div class="categoriesChart">
+          <h2 class="subTitle">Categories <small> - About expense</small></h2>
+          <div class="canvas-area">
+            <canvas id="categoryChart"></canvas>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div id="mobileBottom">
+      <div class="user">
+        <a href="./pages/UserInfo/user-info.html"> User Info </a>
+      </div>
+      <div class="add-expense">+</div>
+      <div id="mobileAddExpenseArea">
+        <!-- popup // fetch the add-expense html -->
+        <!-- When Click the button of the "add-expense", the popup has a class "add-popup" -->
+        <!-- I'll make this function -->
+        <div id="inputFormArea">
+          <script type="module">
+            addExpense();
+          </script>
         </div>
       </div>
+      <div class="editCategory">
+        <a href="./pages/expense-list/index.html">Expense List</a>
+      </div>
     </div>
-  </body>
+  </div>
+</body>
 
-  <script src="./classes/User.js"></script>
-  <script src="/functions/main-expense-function.js"></script>
-  <script src="/functions/chart.js"></script>
-  <script src="/functions/expense-function.js"></script>
-  <script src="/utils/loadFile.js"></script>
+<script src="./classes/User.js"></script>
+<script src="/functions/main-expense-function.js"></script>
+<script src="/functions/chart.js"></script>
+<script src="/functions/expense-function.js"></script>
+<script src="/utils/loadFile.js"></script>
+
 </html>

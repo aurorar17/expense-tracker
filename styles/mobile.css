@@ -3,6 +3,7 @@
     gap: 40px;
     flex-direction: column;
   }
+
   tbody tr td:first-child {
     width: 18px;
     height: 18px;
@@ -12,6 +13,7 @@
     min-height: 300px;
   }
 }
+
 @media screen and (max-width: 768px) {
   body {
     padding: 0;
@@ -57,7 +59,7 @@
     margin: 5%;
   }
 
-  #mobileMenuBtn:checked ~ nav {
+  #mobileMenuBtn:checked~nav {
     display: block;
   }
 
@@ -68,6 +70,7 @@
   .user-info img {
     width: 25%;
   }
+
   .menuContain {
     width: 100%;
     align-items: center;
@@ -160,11 +163,13 @@
     #inputForm {
       gap: 15px;
     }
+
     select,
     input,
     button {
       width: 100%;
     }
+
     button {
       padding: 10px;
     }
