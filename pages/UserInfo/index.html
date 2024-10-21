@@ -18,7 +18,8 @@
 <body>
   <div class="wrap">
     <header>
-      <h1 id="user-info-h1"><a href="">Money Tracker</a></h1>
+      <h1 id="user-info-h1"><a href="./expense-tracker/index.html">Money
+          Tracker</a></h1>
 
       <input type="checkbox" id="mobileMenuBtn" />
       <label for="mobileMenuBtn" class="hamburgerBtn mobileBtn">
@@ -38,10 +39,34 @@
         </label>
         <div class="user-info">
           <a href="./pages/UserInfo/index.html">
-            <img src="./img/undraw_profile.svg" alt="undraw_profile" />
+            <img src="./johnpic.JPG" alt="undraw_profile" style="border-radius: 10px;" />
             <h3 class="user-info-h3">Welcome back, [User Name]</h3>
           </a>
         </div>
+
+
+
+
+        <!--da qui 0-->
+
+        <div class="menu">
+          <a href="#" id="userSummaryLink">
+            <svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M5 1.5H23C24.933 1.5 26.5 3.067 26.5 5V15C26.5 16.933 24.933 18.5 23 18.5H15.0949C14.5811 18.5 14.0692 18.5609 13.5697 18.6815L2.11732 21.4458C1.80275 21.5218 1.5 21.2834 1.5 20.9598V5C1.5 3.067 3.067 1.5 5 1.5Z"
+                stroke="#CCC3DC" stroke-width="3" />
+              <circle cx="8.78571" cy="7.78571" r="0.785714" fill="#5A1CDF" />
+              <path d="M11.9286 7.78571H19" stroke="#5A1CDF" stroke-linecap="round" />
+              <circle cx="8.78571" cy="10.1429" r="0.785714" fill="#5A1CDF" />
+              <path d="M11.9286 10.1429H19" stroke="#5A1CDF" stroke-linecap="round" />
+              <circle cx="8.78571" cy="12.5" r="0.785714" fill="#5A1CDF" />
+              <path d="M11.9286 12.5H19" stroke="#5A1CDF" stroke-linecap="round" />
+            </svg>
+            <h3 class="active user-info-h3">User SUMMARY</h3>
+          </a>
+        </div>
+
+
 
 
 
@@ -62,8 +87,9 @@
             </svg>
             <h3 class="active user-info-h3">User Information</h3>
           </a>
-
         </div>
+
+
 
 
         <!--da qui 2-->
@@ -84,19 +110,12 @@
             </svg>
             <h3 class="active user-info-h3">Bank Information</h3>
           </a>
-          <div id="bankInformationSection" style="display: none;">
-            <h4>Your Banks:</h4>
-            <ul>
-              <li>- Santander Bank,</li>
-              <li>- Royal Bank Canada,</li>
-              <li>- Fineco.</li>
-            </ul>
-            <h4>Saving deposits:</h4>
-            <ul>
-              <li>- CIBC.</li>
-            </ul>
-          </div>
         </div>
+
+
+
+
+
       </nav>
     </header>
 
@@ -197,7 +216,96 @@
               </tr>
             </tbody>
           </table>
+        </div>
 
+        <div id="userSummarySection" style="display: none;">
+          <!--<section class="annual-summary">
+            <h2 class="subTitle">Annual Summary</h2>
+            <table id="monthlySummaryTable">
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Income</th>
+                  <th>Expense</th>
+                  <th>Balance</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </section>
+        -->
+          <section class="left-section">
+            <h2 class="subTitle currentMonth" style="color: #5a1cdf; text-align: center; font-weight: bold;">
+              Look at your Annualy expense
+            </h2>
+            <div class="current-box">
+              <h3 class="transTitle">Current Balance</h3>
+              <h1></h1>
+            </div>
+            <div class="monthlyExpense">
+              <div class="MonthSummary income">
+                <h3 class="transTitle">Annualy Income</h3>
+                <h2></h2>
+              </div>
+              <div class="MonthSummary expense">
+                <h3 class="transTitle">Annualy Expense</h3>
+                <h2></h2>
+              </div>
+              <div class="form-container">
+                <h2>Seleziona un Mese</h2>
+                <form id="monthForm" onsubmit="handleMonthSelection(event)">
+                  <label for="monthSelect">Scegli un mese:</label>
+                  <select id="monthSelect" name="month">
+                    <option value="" disabled selected>Seleziona un mese</option>
+                    <option value="january">Gennaio</option>
+                    <option value="february">Febbraio</option>
+                    <option value="march">Marzo</option>
+                    <option value="april">Aprile</option>
+                    <option value="may">Maggio</option>
+                    <option value="june">Giugno</option>
+                    <option value="july">Luglio</option>
+                    <option value="august">Agosto</option>
+                    <option value="september">Settembre</option>
+                    <option value="october">Ottobre</option>
+                    <option value="november">Novembre</option>
+                    <option value="december">Dicembre</option>
+                  </select>
+                  <button type="submit">Visualizza</button>
+                </form>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div id="bankInformationSection" style="display: none;">
+          <div class="table-container">
+            <h4>Your banks:</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 20%;">Bank name</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 80px; height: 40px;">Santander</td>
+                  <td>Bank account</td>
+                </tr>
+                <tr>
+                  <td style="width: 80px; height: 40px;">RBC</td>
+                  <td>Bank account</td>
+                </tr>
+                <tr>
+                  <td style="width: 80px; height: 60px;">Fineco</td>
+                  <td>Bank account</td>
+                </tr>
+                <tr>
+                  <td style="width: 80px; height: 40px;">CIBC</td>
+                  <td>Savings</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
     </main>
@@ -214,6 +322,22 @@
     document.querySelectorAll('h3, h2').forEach(function (element) {
       element.innerHTML = element.innerHTML.replace("[User Name]", userName);
     });
+
+
+    document.getElementById("userSummaryLink").addEventListener("click", function (event) {
+      event.preventDefault(); // Preveniamo il comportamento predefinito del link
+
+      // Mostra la sezione nascosta
+      const userInfoSection = document.getElementById("userSummarySection");
+
+      if (userInfoSection.style.display === "none" || userInfoSection.style.display === "") {
+        userInfoSection.style.display = "block";
+      } else {
+        userInfoSection.style.display = "none"; // Puoi nasconderla nuovamente se vuoi che sia una sezione a scomparsa
+      }
+    });
+
+
     document.getElementById("userInfoLink").addEventListener("click", function (event) {
       event.preventDefault(); // Preveniamo il comportamento predefinito del link
 
@@ -240,6 +364,8 @@
       }
     });
 
+
+
     function toggleDefinition(icon) {
       // Trova la definizione sotto il td della riga cliccata
       const definition = icon.parentElement.querySelector('.definition');
@@ -249,7 +375,59 @@
         definition.style.display = 'none'; // Nascondi la definizione
       }
     }
+
+    /*
+        function getMonthlySummary() {
+          const expenses = JSON.parse(localStorage.getItem("expense")) || [];
+          const monthlySummary = {};
+    
+          expenses.forEach(expense => {
+            const expenseDate = new Date(expense.date);
+            const monthKey = `${expenseDate.getFullYear()}-${String(expenseDate.getMonth() + 1).padStart(2, '0')}`;
+    
+            if (!monthlySummary[monthKey]) {
+              monthlySummary[monthKey] = { income: 0, expense: 0 };
+            }
+    
+            if (expense.income === "income") {
+              monthlySummary[monthKey].income += expense.cost;
+            } else if (expense.income === "expense") {
+              monthlySummary[monthKey].expense += expense.cost;
+            }
+          });
+    
+          return monthlySummary;
+        }
+    
+        function displayMonthlySummary() {
+          const summary = getMonthlySummary();
+          const tableBody = document.querySelector("#monthlySummaryTable tbody");
+          tableBody.innerHTML = "";
+    
+          Object.keys(summary).forEach(month => {
+            const monthData = summary[month];
+            const newRow = document.createElement("tr");
+    
+            newRow.innerHTML = `
+                <td>${month}</td>
+                <td>+ $ ${monthData.income.toFixed(2)}</td>
+                <td>- $ ${monthData.expense.toFixed(2)}</td>
+                <td>$ ${(monthData.income - monthData.expense).toFixed(2)}</td>
+            `;
+    
+            tableBody.appendChild(newRow);
+          });
+        }
+        */
+
   </script>
+
+
+  <script src="./classes/User.js"></script>
+  <script src="/functions/main-expense-function.js"></script>
+  <script src="/functions/chart.js"></script>
+  <script src="/functions/expense-function.js"></script>
+  <script src="/utils/loadFile.js"></script>
 </body>
 
 <script src="./classes/User.js"></script>
