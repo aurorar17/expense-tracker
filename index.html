@@ -29,15 +29,22 @@
 
       <main>
         <section class="left-section">
-          <h2 class="subTitle currentMonth">
+          <h2 class="subTitle">
             Look at your Expense of
-            <span id="currentMonth">
-              <script>
-                document.write(
-                  new Date().toLocaleString("en-us", { month: "long" })
-                );
-              </script>
-            </span>
+            <select id="currentMonthSelect">
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
           </h2>
           <div class="current-box">
             <h3 class="transTitle">Current Balance</h3>
@@ -49,7 +56,7 @@
               <h2></h2>
             </div>
             <div class="MonthSummary expense">
-              <h3 class="transTitle">M Expense</h3>
+              <h3 class="transTitle">Monthly Expense</h3>
               <h2></h2>
             </div>
           </div>
@@ -108,6 +115,6 @@
   <script src="./classes/User.js"></script>
   <script src="/functions/main-expense-function.js"></script>
   <script src="/functions/chart.js"></script>
-  <script src="/functions/expense-function.js"></script>
+  <!-- <script src="/functions/add-expense.js"></script> -->
   <script src="/utils/loadFile.js"></script>
 </html>

@@ -85,6 +85,11 @@
     gap: 32px;
   }
 
+  #currentMonthSelect {
+    font-size: 2.7rem;
+    background-size: 1.3rem;
+  }
+
   .current-box {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 16px;

@@ -1,69 +1,54 @@
 function generateChart() {
     const expenses = JSON.parse(localStorage.getItem("expense")) || [];
 
-    const today = new Date();
-    today.setHours(0,0,0,0); //ignore the time
+    const selectedMonth = parseInt(document.getElementById("currentMonthSelect").value);
+    const currentYear = new Date().getFullYear();
 
-    // total 7 days
-    const getSevenDays = (daysOffset) => {
-        const targetDate = new Date();
-        targetDate.setDate(today.getDate() + daysOffset);
-        return targetDate.toLocaleDateString('en-US', { day: 'numeric', month: 'numeric' }); // appear : MM/DD
-    };
+    const daysInMonth = new Date(currentYear, selectedMonth, 0).getDate(); 
+    const incomeData = Array(daysInMonth).fill(0); 
+    const expenseData = Array(daysInMonth).fill(0);
 
-    const labels = [
-        getSevenDays(-3),
-        getSevenDays(-2),
-        getSevenDays(-1),
-        today.toLocaleDateString('en-US', { day: 'numeric', month: 'numeric' }),
-        getSevenDays(1),
-        getSevenDays(2),
-        getSevenDays(3),
-    ];
-
-    const incomeData = [0, 0, 0, 0, 0, 0, 0];
-    const expenseData = [0, 0, 0, 0, 0, 0, 0];
-
-    // Calculate of the cost by per day
     expenses.forEach(expense => {
         const expenseDate = new Date(expense.date);
-        expenseDate.setDate(expenseDate.getDate() + 1); // Date + 1 because it start 0
+        expenseDate.setDate(expenseDate.getDate() + 1); 
+        
+        if (expenseDate.getFullYear() === currentYear && expenseDate.getMonth() + 1 === selectedMonth) {
+            const day = expenseDate.getDate(); 
 
-        const dayDifference = Math.floor((expenseDate - today) / (1000 * 60 * 60 * 24));
-
-        if (dayDifference >= -3 && dayDifference <= 3) {
-            const index = dayDifference + 3;
             if (expense.income === 'income') {
-                incomeData[index] += expense.cost;
+                incomeData[day - 1] += expense.cost; 
             } else if (expense.income === 'expense') {
-                expenseData[index] += expense.cost;
+                expenseData[day - 1] += expense.cost;
             }
         }
     });
 
-    console.log(expenses);
-
-    // Daily Chart
+    const labels = Array.from({ length: daysInMonth }, (_, i) => `${i + 1}일`);
+    
     const dailyChartCanvas = document.getElementById("dailyChart").getContext("2d");
-    const dailyChart = new Chart(dailyChartCanvas, {
+    if (dailyChartCanvas.chart) {
+        dailyChartCanvas.chart.destroy();
+    }
+
+    dailyChartCanvas.chart = new Chart(dailyChartCanvas, {
         type: "bar",
         data: {
             labels: labels,
             datasets: [
                 {
                     label: "Income",
-                    backgroundColor: "#4aa76f",
+                    backgroundColor: "rgba(75, 192, 192, 0.6)",
                     data: incomeData,
                 },
                 {
                     label: "Expense",
-                    backgroundColor: "#e44242",
+                    backgroundColor: "rgba(255, 99, 132, 0.6)",
                     data: expenseData,
                 },
             ],
         },
         options: {
-            responsive: true, // make the responsive layout
+            responsive: true,
             maintainAspectRatio: false,
             scales: {
                 y: {
@@ -78,36 +63,43 @@ function generateChart() {
         },
     });
 
-    // Category Chart
-    // Only calculate about expense
-    // If the expense.income === "income", it's ignore.
+    // Expense Category Chart
     const categoryData = {};
     expenses.forEach(expense => {
-        if (expense.income === "expense") {
+        const expenseDate = new Date(expense.date);
+        expenseDate.setDate(expenseDate.getDate() + 1); 
+        
+        if (expense.income === "expense" && expenseDate.getFullYear() === currentYear && expenseDate.getMonth() + 1 === selectedMonth) {
             const category = expense.category;
             const cost = expense.cost;
-    
+
             if (categoryData[category]) {
                 categoryData[category] += cost;
             } else {
                 categoryData[category] = cost;
             }
         }
-        
     });
 
     const categoryLabels = Object.keys(categoryData);
     const categoriesCost = Object.values(categoryData);
 
     const categoryChartCanvas = document.getElementById("categoryChart").getContext("2d");
-    const categoryChart = new Chart(categoryChartCanvas, {
+    if (categoryChartCanvas.chart) {
+        categoryChartCanvas.chart.destroy();
+    }
+
+    const chartData = categoriesCost.length === 0 ? [1] : categoriesCost; // if selected month doesn't have a expense list, it's data changes to 1 (for draw a graph)
+    const chartLabels = categoriesCost.length === 0 ? ['No Expenses'] : categoryLabels;
+
+    categoryChartCanvas.chart = new Chart(categoryChartCanvas, {
         type: 'pie',
         data: {
-            labels: categoryLabels,
+            labels: chartLabels,
             datasets: [{
                 label: 'Category Expenses',
-                data: categoriesCost,
-                backgroundColor: [
+                data: chartData,
+                backgroundColor: chartData[0] === 1 ? ['rgba(169, 169, 169, 1)'] : [
                     'rgba(255, 99, 132, 0.6)',  
                     'rgba(54, 162, 235, 0.6)',  
                     'rgba(255, 206, 86, 0.6)',  
@@ -119,29 +111,36 @@ function generateChart() {
                     'rgba(255, 182, 193, 0.6)', 
                     'rgba(101, 178, 255, 0.6)', 
                 ],
-                
+                borderColor: 'rgba(0, 0, 0, 0.1)', 
+                borderWidth: 1,
             }]
         },
         options: {
-            responsive: true, 
+            responsive: true,
             maintainAspectRatio: true,
             plugins: {
                 legend: {
                     position: 'bottom',
                 },
                 datalabels: {
-                    // color: '#fff',
-                    // backgroundColor: "red",
-                    formatter: (value, context) => {
-                        return `$ ${value}`; 
+                    // if the value is 1, it means the selected month doesn't have a expense list. so don't return the label
+                    display: (context) => {
+                        return context.dataset.data[context.dataIndex] !== 1; 
                     },
-                    anchor: 'center', 
-                    align: 'center', 
+                    formatter: (value) => {
+                        return value === 1 ? '' : `$${value}`;
+                    },
+                    anchor: 'center',
+                    align: 'center',
                 }
-            }
+            },
+            cutoutPercentage: 0,
         },
         plugins: [ChartDataLabels],
     });
 }
+
+// the graph is changed according to select box
+document.getElementById("currentMonthSelect").addEventListener("change", generateChart);
 
 generateChart();
