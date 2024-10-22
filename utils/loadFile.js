@@ -1,4 +1,5 @@
 const load = (url, mapFiller) => {
+  console.log(url, mapFiller);
   const xmlhttp = new XMLHttpRequest();
 
   xmlhttp.onload = () => {
