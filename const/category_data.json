@@ -2,51 +2,61 @@
   {
     "id": 1,
     "name": "Food",
-    "description": "Expenses for groceries and dining out"
+    "description": "Expenses for groceries and dining out",
+    "limit": 1000
   },
   {
     "id": 2,
     "name": "Transportation",
-    "description": "Public transport, fuel, and other travel expenses"
+    "description": "Public transport, fuel, and other travel expenses",
+    "limit": 1000
   },
   {
     "id": 3,
     "name": "Housing",
-    "description": "Rent, mortgage, and home maintenance costs"
+    "description": "Rent, mortgage, and home maintenance costs",
+    "limit": 1000
   },
   {
     "id": 4,
     "name": "Utilities",
-    "description": "Electricity, water, gas, and other utility bills"
+    "description": "Electricity, water, gas, and other utility bills",
+    "limit": 1000
   },
   {
     "id": 5,
     "name": "Healthcare",
-    "description": "Medical expenses, insurance, and medications"
+    "description": "Medical expenses, insurance, and medications",
+    "limit": 1000
   },
   {
     "id": 6,
     "name": "Entertainment",
-    "description": "Leisure activities such as movies, concerts, and subscriptions"
+    "description": "Leisure activities such as movies, concerts, and subscriptions",
+    "limit": 1000
   },
   {
     "id": 7,
     "name": "Education",
-    "description": "Tuition fees, courses, books, and learning materials"
+    "description": "Tuition fees, courses, books, and learning materials",
+    "limit": 1000
   },
   {
     "id": 8,
     "name": "Clothing",
-    "description": "Expenses on clothes, shoes, and accessories"
+    "description": "Expenses on clothes, shoes, and accessories",
+    "limit": 1000
   },
   {
     "id": 9,
     "name": "Savings",
-    "description": "Money set aside for future use or emergencies"
+    "description": "Money set aside for future use or emergencies",
+    "limit": 1000
   },
   {
     "id": 10,
     "name": "Miscellaneous",
-    "description": "Other expenses that don't fit into the defined categories"
+    "description": "Other expenses that don't fit into the defined categories",
+    "limit": 1000
   }
 ]
