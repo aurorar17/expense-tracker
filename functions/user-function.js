@@ -1,8 +1,5 @@
 function loadUser() {
-    fetch("/modules/user_module.js")
-        .then(({ user }) => {
-            console.log(user);
-        });
+  import("/modules/user_module.js");
 }
 
 loadUser();
