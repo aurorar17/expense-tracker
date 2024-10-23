@@ -1,319 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Info</title>
 
-    <!-- CSS part -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 
-    <link rel="stylesheet" href="/styles/desktop.css" />
-    <link rel="stylesheet" href="./user-info.css" />
+  <link rel="stylesheet" href="./styles.global.css">
+  <link rel="stylesheet" href="./styles/desktop.css" />
+  <link rel="stylesheet" href="./styles/mobile.css" />
+</head>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-  </head>
+<body>
+  <div class="wrap">
+    <header>
+      <script src="/classes/Header.js"></script>
+    </header>
 
-  <body>
-    <div class="wrap">
-      <header>
-        <script src="/classes/Header.js"></script>
-      </header>
+    <input type="checkbox" id="mobileMenuBtn" />
+    <label for="mobileMenuBtn" class="hamburgerBtn mobileBtn">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 21.5866V20.3366H25V21.5866H5ZM5 15.625V14.375H25V15.625H5ZM5 9.66345V8.41345H25V9.66345H5Z"
+          fill="#5A1CDF" />
+      </svg>
+    </label>
 
-        <input type="checkbox" id="mobileMenuBtn" />
-        <label for="mobileMenuBtn" class="hamburgerBtn mobileBtn">
-          <svg
-            width="30"
-            height="30"
-            viewBox="0 0 30 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+    <nav>
+      <label for="mobileMenuBtn" class="closeBtn mobileBtn">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M7.99992 22.8847L7.11523 22L14.1152 15L7.11523 8.00001L7.99992 7.11533L14.9999 14.1153L21.9999 7.11533L22.8846 8.00001L15.8846 15L22.8846 22L21.9999 22.8847L14.9999 15.8847L7.99992 22.8847Z"
+            fill="#5A1CDF" />
+        </svg>
+      </label>
+      <div class="user-info">
+        <a href="./pages/UserInfo/index.html">
+          <img src="./johnpic.JPG" alt="undraw_profile" style="border-radius: 10px" />
+          <h3 class="user-info-h3">
+            Welcome back,
+            <div id="user-name"></div>
+          </h3>
+        </a>
+      </div>
+
+      <!--da qui 0-->
+
+      <div class="menu">
+        <a href="#" id="userSummaryLink">
+          <svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
-              d="M5 21.5866V20.3366H25V21.5866H5ZM5 15.625V14.375H25V15.625H5ZM5 9.66345V8.41345H25V9.66345H5Z"
-              fill="#5A1CDF"
-            />
+              d="M5 1.5H23C24.933 1.5 26.5 3.067 26.5 5V15C26.5 16.933 24.933 18.5 23 18.5H15.0949C14.5811 18.5 14.0692 18.5609 13.5697 18.6815L2.11732 21.4458C1.80275 21.5218 1.5 21.2834 1.5 20.9598V5C1.5 3.067 3.067 1.5 5 1.5Z"
+              stroke="#CCC3DC" stroke-width="3" />
+            <circle cx="8.78571" cy="7.78571" r="0.785714" fill="#5A1CDF" />
+            <path d="M11.9286 7.78571H19" stroke="#5A1CDF" stroke-linecap="round" />
+            <circle cx="8.78571" cy="10.1429" r="0.785714" fill="#5A1CDF" />
+            <path d="M11.9286 10.1429H19" stroke="#5A1CDF" stroke-linecap="round" />
+            <circle cx="8.78571" cy="12.5" r="0.785714" fill="#5A1CDF" />
+            <path d="M11.9286 12.5H19" stroke="#5A1CDF" stroke-linecap="round" />
           </svg>
-        </label>
+          <h3 class="active user-info-h3">User SUMMARY</h3>
+        </a>
+      </div>
 
-        <nav>
-          <label for="mobileMenuBtn" class="closeBtn mobileBtn">
-            <svg
-              width="30"
-              height="30"
-              viewBox="0 0 30 30"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7.99992 22.8847L7.11523 22L14.1152 15L7.11523 8.00001L7.99992 7.11533L14.9999 14.1153L21.9999 7.11533L22.8846 8.00001L15.8846 15L22.8846 22L21.9999 22.8847L14.9999 15.8847L7.99992 22.8847Z"
-                fill="#5A1CDF"
-              />
-            </svg>
-          </label>
-          <div class="user-info">
-            <a href="./pages/UserInfo/index.html">
-              <img
-                src="./johnpic.JPG"
-                alt="undraw_profile"
-                style="border-radius: 10px"
-              />
-              <h3 class="user-info-h3">
-                Welcome back,
-                <div id="user-name"></div>
-              </h3>
-            </a>
-          </div>
+      <!--da qui 1-->
 
-          <!--da qui 0-->
+      <div class="menu">
+        <a href="#" id="userInfoLink">
+          <svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M5 1.5H23C24.933 1.5 26.5 3.067 26.5 5V15C26.5 16.933 24.933 18.5 23 18.5H15.0949C14.5811 18.5 14.0692 18.5609 13.5697 18.6815L2.11732 21.4458C1.80275 21.5218 1.5 21.2834 1.5 20.9598V5C1.5 3.067 3.067 1.5 5 1.5Z"
+              stroke="#CCC3DC" stroke-width="3" />
+            <circle cx="8.78571" cy="7.78571" r="0.785714" fill="#5A1CDF" />
+            <path d="M11.9286 7.78571H19" stroke="#5A1CDF" stroke-linecap="round" />
+            <circle cx="8.78571" cy="10.1429" r="0.785714" fill="#5A1CDF" />
+            <path d="M11.9286 10.1429H19" stroke="#5A1CDF" stroke-linecap="round" />
+            <circle cx="8.78571" cy="12.5" r="0.785714" fill="#5A1CDF" />
+            <path d="M11.9286 12.5H19" stroke="#5A1CDF" stroke-linecap="round" />
+          </svg>
+          <h3 class="active user-info-h3">User Information</h3>
+        </a>
+      </div>
 
-          <div class="menu">
-            <a href="#" id="userSummaryLink">
-              <svg
-                width="28"
-                height="24"
-                viewBox="0 0 28 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 1.5H23C24.933 1.5 26.5 3.067 26.5 5V15C26.5 16.933 24.933 18.5 23 18.5H15.0949C14.5811 18.5 14.0692 18.5609 13.5697 18.6815L2.11732 21.4458C1.80275 21.5218 1.5 21.2834 1.5 20.9598V5C1.5 3.067 3.067 1.5 5 1.5Z"
-                  stroke="#CCC3DC"
-                  stroke-width="3"
-                />
-                <circle cx="8.78571" cy="7.78571" r="0.785714" fill="#5A1CDF" />
-                <path
-                  d="M11.9286 7.78571H19"
-                  stroke="#5A1CDF"
-                  stroke-linecap="round"
-                />
-                <circle cx="8.78571" cy="10.1429" r="0.785714" fill="#5A1CDF" />
-                <path
-                  d="M11.9286 10.1429H19"
-                  stroke="#5A1CDF"
-                  stroke-linecap="round"
-                />
-                <circle cx="8.78571" cy="12.5" r="0.785714" fill="#5A1CDF" />
-                <path
-                  d="M11.9286 12.5H19"
-                  stroke="#5A1CDF"
-                  stroke-linecap="round"
-                />
-              </svg>
-              <h3 class="active user-info-h3">User SUMMARY</h3>
-            </a>
-          </div>
+      <!--da qui 2-->
 
-          <!--da qui 1-->
+      <div class="menu">
+        <a href="#" id="bankInformationLink">
+          <svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M5 1.5H23C24.933 1.5 26.5 3.067 26.5 5V15C26.5 16.933 24.933 18.5 23 18.5H15.0949C14.5811 18.5 14.0692 18.5609 13.5697 18.6815L2.11732 21.4458C1.80275 21.5218 1.5 21.2834 1.5 20.9598V5C1.5 3.067 3.067 1.5 5 1.5Z"
+              stroke="#CCC3DC" stroke-width="3" />
+            <circle cx="8.78571" cy="7.78571" r="0.785714" fill="#5A1CDF" />
+            <path d="M11.9286 7.78571H19" stroke="#5A1CDF" stroke-linecap="round" />
+            <circle cx="8.78571" cy="10.1429" r="0.785714" fill="#5A1CDF" />
+            <path d="M11.9286 10.1429H19" stroke="#5A1CDF" stroke-linecap="round" />
+            <circle cx="8.78571" cy="12.5" r="0.785714" fill="#5A1CDF" />
+            <path d="M11.9286 12.5H19" stroke="#5A1CDF" stroke-linecap="round" />
+          </svg>
+          <h3 class="active user-info-h3">Bank Information</h3>
+        </a>
+      </div>
+    </nav>
+    </header>
 
-          <div class="menu">
-            <a href="#" id="userInfoLink">
-              <svg
-                width="28"
-                height="24"
-                viewBox="0 0 28 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 1.5H23C24.933 1.5 26.5 3.067 26.5 5V15C26.5 16.933 24.933 18.5 23 18.5H15.0949C14.5811 18.5 14.0692 18.5609 13.5697 18.6815L2.11732 21.4458C1.80275 21.5218 1.5 21.2834 1.5 20.9598V5C1.5 3.067 3.067 1.5 5 1.5Z"
-                  stroke="#CCC3DC"
-                  stroke-width="3"
-                />
-                <circle cx="8.78571" cy="7.78571" r="0.785714" fill="#5A1CDF" />
-                <path
-                  d="M11.9286 7.78571H19"
-                  stroke="#5A1CDF"
-                  stroke-linecap="round"
-                />
-                <circle cx="8.78571" cy="10.1429" r="0.785714" fill="#5A1CDF" />
-                <path
-                  d="M11.9286 10.1429H19"
-                  stroke="#5A1CDF"
-                  stroke-linecap="round"
-                />
-                <circle cx="8.78571" cy="12.5" r="0.785714" fill="#5A1CDF" />
-                <path
-                  d="M11.9286 12.5H19"
-                  stroke="#5A1CDF"
-                  stroke-linecap="round"
-                />
-              </svg>
-              <h3 class="active user-info-h3">User Information</h3>
-            </a>
-          </div>
+    <!-- User Dashboard -->
+    <main>
+      <section class="user-dashboard">
+        <div id="userInfoSection" style="display: none">
+          <table>
+            <h4>User Information:</h4>
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <td data-label="Nome">John</td>
+              </tr>
+              <tr>
+                <th>Surname</th>
+                <td data-label="Cognome">Rossi</td>
+              </tr>
+              <tr>
+                <th>Email</th>
+                <td data-label="Email">john.rossi@example.com</td>
+              </tr>
+              <tr>
+                <th>Phone number</th>
+                <td data-label="Numero di Telefono">+39 347 123 4567</td>
+              </tr>
+            </tbody>
+          </table>
+          <h4>Privacy:</h4>
+          <table>
+            <tbody>
+              <tr>
+                <th>Data Usage Consent</th>
+                <td data-label="Data Usage Consent">
+                  Accepted
+                  <img src="https://img.icons8.com/material-outlined/16/000000/info.png" class="info-icon"
+                    onclick="toggleDefinition(this)" />
+                  <div class="definition">
+                    User agrees to the use of their data for specified
+                    purposes. Lorem ipsum dolor sit amet consectetur,
+                    adipisicing elit. Magni maiores a, autem nihil neque
+                    accusamus, culpa deserunt consectetur blanditiis
+                    perspiciatis temporibus voluptates asperiores, ex
+                    perferendis vero velit voluptatibus. Fuga, quasi.
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>Data Sharing with Third Parties</th>
+                <td data-label="Data Sharing with Third Parties">
+                  Not Allowed
+                  <img src="https://img.icons8.com/material-outlined/16/000000/info.png" class="info-icon"
+                    onclick="toggleDefinition(this)" />
+                  <div class="definition">
+                    User does not permit sharing of personal data with third
+                    parties. Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Accusantium atque natus impedit, enim
+                    numquam ratione, fugiat odit a illum voluptatum
+                    reprehenderit tempora totam et quibusdam, nemo similique
+                    dignissimos quo culpa.
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>Marketing Preferences</th>
+                <td data-label="Marketing Preferences">
+                  Newsletter Enabled
+                  <img src="https://img.icons8.com/material-outlined/16/000000/info.png" class="info-icon"
+                    onclick="toggleDefinition(this)" />
+                  <div class="definition">
+                    User has opted in to receive marketing communications.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Magnam in aspernatur ullam. Similique, doloribus
+                    assumenda. Modi quis qui ratione, sunt optio temporibus
+                    asperiores similique perferendis fugiat, voluptatum veniam
+                    atque minus!
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>Tracking and Cookies</th>
+                <td data-label="Tracking and Cookies">
+                  Enabled
+                  <img src="https://img.icons8.com/material-outlined/16/000000/info.png" class="info-icon"
+                    onclick="toggleDefinition(this)" />
+                  <div class="definition">
+                    User allows the use of tracking technologies and cookies.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Voluptates optio quisquam molestiae repudiandae quia earum
+                    voluptatibus error dignissimos aliquam perferendis dolorum
+                    nemo numquam libero tenetur dolorem, animi at cumque?
+                    Rerum!
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>Data Deletion Request</th>
+                <td data-label="Data Deletion Request">
+                  Not Requested
+                  <img src="https://img.icons8.com/material-outlined/16/000000/info.png" class="info-icon"
+                    onclick="toggleDefinition(this)" />
+                  <div class="definition">
+                    User has not submitted a request for data deletion. Lorem
+                    ipsum dolor sit amet, consectetur adipisicing elit. Quod
+                    excepturi, mollitia animi, beatae saepe dolores deserunt,
+                    illum quis quidem officiis quisquam iure velit nihil
+                    repellat necessitatibus perferendis tempora totam error!
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-          <!--da qui 2-->
-
-          <div class="menu">
-            <a href="#" id="bankInformationLink">
-              <svg
-                width="28"
-                height="24"
-                viewBox="0 0 28 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 1.5H23C24.933 1.5 26.5 3.067 26.5 5V15C26.5 16.933 24.933 18.5 23 18.5H15.0949C14.5811 18.5 14.0692 18.5609 13.5697 18.6815L2.11732 21.4458C1.80275 21.5218 1.5 21.2834 1.5 20.9598V5C1.5 3.067 3.067 1.5 5 1.5Z"
-                  stroke="#CCC3DC"
-                  stroke-width="3"
-                />
-                <circle cx="8.78571" cy="7.78571" r="0.785714" fill="#5A1CDF" />
-                <path
-                  d="M11.9286 7.78571H19"
-                  stroke="#5A1CDF"
-                  stroke-linecap="round"
-                />
-                <circle cx="8.78571" cy="10.1429" r="0.785714" fill="#5A1CDF" />
-                <path
-                  d="M11.9286 10.1429H19"
-                  stroke="#5A1CDF"
-                  stroke-linecap="round"
-                />
-                <circle cx="8.78571" cy="12.5" r="0.785714" fill="#5A1CDF" />
-                <path
-                  d="M11.9286 12.5H19"
-                  stroke="#5A1CDF"
-                  stroke-linecap="round"
-                />
-              </svg>
-              <h3 class="active user-info-h3">Bank Information</h3>
-            </a>
-          </div>
-        </nav>
-      </header>
-
-      <!-- User Dashboard -->
-      <main>
-        <section class="user-dashboard">
-          <div id="userInfoSection" style="display: none">
-            <table>
-              <h4>User Information:</h4>
-              <tbody>
-                <tr>
-                  <th>Name</th>
-                  <td data-label="Nome">John</td>
-                </tr>
-                <tr>
-                  <th>Surname</th>
-                  <td data-label="Cognome">Rossi</td>
-                </tr>
-                <tr>
-                  <th>Email</th>
-                  <td data-label="Email">john.rossi@example.com</td>
-                </tr>
-                <tr>
-                  <th>Phone number</th>
-                  <td data-label="Numero di Telefono">+39 347 123 4567</td>
-                </tr>
-              </tbody>
-            </table>
-            <h4>Privacy:</h4>
-            <table>
-              <tbody>
-                <tr>
-                  <th>Data Usage Consent</th>
-                  <td data-label="Data Usage Consent">
-                    Accepted
-                    <img
-                      src="https://img.icons8.com/material-outlined/16/000000/info.png"
-                      class="info-icon"
-                      onclick="toggleDefinition(this)"
-                    />
-                    <div class="definition">
-                      User agrees to the use of their data for specified
-                      purposes. Lorem ipsum dolor sit amet consectetur,
-                      adipisicing elit. Magni maiores a, autem nihil neque
-                      accusamus, culpa deserunt consectetur blanditiis
-                      perspiciatis temporibus voluptates asperiores, ex
-                      perferendis vero velit voluptatibus. Fuga, quasi.
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th>Data Sharing with Third Parties</th>
-                  <td data-label="Data Sharing with Third Parties">
-                    Not Allowed
-                    <img
-                      src="https://img.icons8.com/material-outlined/16/000000/info.png"
-                      class="info-icon"
-                      onclick="toggleDefinition(this)"
-                    />
-                    <div class="definition">
-                      User does not permit sharing of personal data with third
-                      parties. Lorem ipsum dolor sit amet, consectetur
-                      adipisicing elit. Accusantium atque natus impedit, enim
-                      numquam ratione, fugiat odit a illum voluptatum
-                      reprehenderit tempora totam et quibusdam, nemo similique
-                      dignissimos quo culpa.
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th>Marketing Preferences</th>
-                  <td data-label="Marketing Preferences">
-                    Newsletter Enabled
-                    <img
-                      src="https://img.icons8.com/material-outlined/16/000000/info.png"
-                      class="info-icon"
-                      onclick="toggleDefinition(this)"
-                    />
-                    <div class="definition">
-                      User has opted in to receive marketing communications.
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Magnam in aspernatur ullam. Similique, doloribus
-                      assumenda. Modi quis qui ratione, sunt optio temporibus
-                      asperiores similique perferendis fugiat, voluptatum veniam
-                      atque minus!
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th>Tracking and Cookies</th>
-                  <td data-label="Tracking and Cookies">
-                    Enabled
-                    <img
-                      src="https://img.icons8.com/material-outlined/16/000000/info.png"
-                      class="info-icon"
-                      onclick="toggleDefinition(this)"
-                    />
-                    <div class="definition">
-                      User allows the use of tracking technologies and cookies.
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Voluptates optio quisquam molestiae repudiandae quia earum
-                      voluptatibus error dignissimos aliquam perferendis dolorum
-                      nemo numquam libero tenetur dolorem, animi at cumque?
-                      Rerum!
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th>Data Deletion Request</th>
-                  <td data-label="Data Deletion Request">
-                    Not Requested
-                    <img
-                      src="https://img.icons8.com/material-outlined/16/000000/info.png"
-                      class="info-icon"
-                      onclick="toggleDefinition(this)"
-                    />
-                    <div class="definition">
-                      User has not submitted a request for data deletion. Lorem
-                      ipsum dolor sit amet, consectetur adipisicing elit. Quod
-                      excepturi, mollitia animi, beatae saepe dolores deserunt,
-                      illum quis quidem officiis quisquam iure velit nihil
-                      repellat necessitatibus perferendis tempora totam error!
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div id="userSummarySection" style="display: none">
-            <!--<section class="annual-summary">
+        <div id="userSummarySection" style="display: none">
+          <!--<section class="annual-summary">
             <h2 class="subTitle">Annual Summary</h2>
             <table id="monthlySummaryTable">
               <thead>
@@ -328,208 +229,206 @@
             </table>
           </section>
         -->
-            <section class="left-section">
-              <h2
-                class="subTitle currentMonth"
-                style="color: #5a1cdf; text-align: center; font-weight: bold"
-              >
-                Look at your Annualy expense
-              </h2>
-              <div class="current-box">
-                <h3 class="transTitle">Current Balance</h3>
-                <h1></h1>
-              </div>
-              <div class="monthlyExpense">
-                <div class="MonthSummary income">
-                  <h3 class="transTitle">Annualy Income</h3>
-                  <h2></h2>
-                </div>
-                <div class="MonthSummary expense">
-                  <h3 class="transTitle">Annualy Expense</h3>
-                  <h2></h2>
-                </div>
-                <div class="form-container">
-                  <h2>Seleziona un Mese</h2>
-                  <form id="monthForm" onsubmit="handleMonthSelection(event)">
-                    <label for="monthSelect">Scegli un mese:</label>
-                    <select id="monthSelect" name="month">
-                      <option value="" disabled selected>
-                        Seleziona un mese
-                      </option>
-                      <option value="january">Gennaio</option>
-                      <option value="february">Febbraio</option>
-                      <option value="march">Marzo</option>
-                      <option value="april">Aprile</option>
-                      <option value="may">Maggio</option>
-                      <option value="june">Giugno</option>
-                      <option value="july">Luglio</option>
-                      <option value="august">Agosto</option>
-                      <option value="september">Settembre</option>
-                      <option value="october">Ottobre</option>
-                      <option value="november">Novembre</option>
-                      <option value="december">Dicembre</option>
-                    </select>
-                    <button type="submit">Visualizza</button>
-                  </form>
-                </div>
-              </div>
-            </section>
-          </div>
-          <div id="bankInformationSection" style="display: none">
-            <div class="table-container">
-              <h4>Your banks:</h4>
-              <table>
-                <thead>
-                  <tr>
-                    <th style="width: 20%">Bank name</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td style="width: 80px; height: 40px">Santander</td>
-                    <td>Bank account</td>
-                  </tr>
-                  <tr>
-                    <td style="width: 80px; height: 40px">RBC</td>
-                    <td>Bank account</td>
-                  </tr>
-                  <tr>
-                    <td style="width: 80px; height: 60px">Fineco</td>
-                    <td>Bank account</td>
-                  </tr>
-                  <tr>
-                    <td style="width: 80px; height: 40px">CIBC</td>
-                    <td>Savings</td>
-                  </tr>
-                </tbody>
-              </table>
+          <section class="left-section">
+            <h2 class="subTitle currentMonth" style="color: #5a1cdf; text-align: center; font-weight: bold">
+              Look at your Annualy expense
+            </h2>
+            <div class="current-box">
+              <h3 class="transTitle">Current Balance</h3>
+              <h1></h1>
             </div>
+            <div class="monthlyExpense">
+              <div class="MonthSummary income">
+                <h3 class="transTitle">Annualy Income</h3>
+                <h2></h2>
+              </div>
+              <div class="MonthSummary expense">
+                <h3 class="transTitle">Annualy Expense</h3>
+                <h2></h2>
+              </div>
+              <div class="form-container">
+                <h2>Seleziona un Mese</h2>
+                <form id="monthForm" onsubmit="handleMonthSelection(event)">
+                  <label for="monthSelect">Scegli un mese:</label>
+                  <select id="monthSelect" name="month">
+                    <option value="" disabled selected>
+                      Seleziona un mese
+                    </option>
+                    <option value="january">Gennaio</option>
+                    <option value="february">Febbraio</option>
+                    <option value="march">Marzo</option>
+                    <option value="april">Aprile</option>
+                    <option value="may">Maggio</option>
+                    <option value="june">Giugno</option>
+                    <option value="july">Luglio</option>
+                    <option value="august">Agosto</option>
+                    <option value="september">Settembre</option>
+                    <option value="october">Ottobre</option>
+                    <option value="november">Novembre</option>
+                    <option value="december">Dicembre</option>
+                  </select>
+                  <button type="submit">Visualizza</button>
+                </form>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div id="bankInformationSection" style="display: none">
+          <div class="table-container">
+            <h4>Your banks:</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 20%">Bank name</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 80px; height: 40px">Santander</td>
+                  <td>Bank account</td>
+                </tr>
+                <tr>
+                  <td style="width: 80px; height: 40px">RBC</td>
+                  <td>Bank account</td>
+                </tr>
+                <tr>
+                  <td style="width: 80px; height: 60px">Fineco</td>
+                  <td>Bank account</td>
+                </tr>
+                <tr>
+                  <td style="width: 80px; height: 40px">CIBC</td>
+                  <td>Savings</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </section>
-      </main>
-    </div>
+        </div>
+      </section>
+    </main>
+  </div>
 
-    <script>
-      document
-        .getElementById("userSummaryLink")
-        .addEventListener("click", function (event) {
-          event.preventDefault(); // Preveniamo il comportamento predefinito del link
+  <script>
+    document
+      .getElementById("userSummaryLink")
+      .addEventListener("click", function (event) {
+        event.preventDefault(); // Preveniamo il comportamento predefinito del link
 
-          // Mostra la sezione nascosta
-          const userInfoSection = document.getElementById("userSummarySection");
+        // Mostra la sezione nascosta
+        const userInfoSection = document.getElementById("userSummarySection");
 
-          if (
-            userInfoSection.style.display === "none" ||
-            userInfoSection.style.display === ""
-          ) {
-            userInfoSection.style.display = "block";
-          } else {
-            userInfoSection.style.display = "none"; // Puoi nasconderla nuovamente se vuoi che sia una sezione a scomparsa
-          }
-        });
-
-      document
-        .getElementById("userInfoLink")
-        .addEventListener("click", function (event) {
-          event.preventDefault(); // Preveniamo il comportamento predefinito del link
-
-          // Mostra la sezione nascosta
-          const userInfoSection = document.getElementById("userInfoSection");
-
-          if (
-            userInfoSection.style.display === "none" ||
-            userInfoSection.style.display === ""
-          ) {
-            userInfoSection.style.display = "block";
-          } else {
-            userInfoSection.style.display = "none"; // Puoi nasconderla nuovamente se vuoi che sia una sezione a scomparsa
-          }
-        });
-
-      document
-        .getElementById("bankInformationLink")
-        .addEventListener("click", function (event) {
-          event.preventDefault(); // Preveniamo il comportamento predefinito del link
-
-          // Mostra la sezione nascosta
-          const userInfoSection = document.getElementById(
-            "bankInformationSection"
-          );
-
-          if (
-            userInfoSection.style.display === "none" ||
-            userInfoSection.style.display === ""
-          ) {
-            userInfoSection.style.display = "block";
-          } else {
-            userInfoSection.style.display = "none"; // Puoi nasconderla nuovamente se vuoi che sia una sezione a scomparsa
-          }
-        });
-
-      function toggleDefinition(icon) {
-        // Trova la definizione sotto il td della riga cliccata
-        const definition = icon.parentElement.querySelector(".definition");
         if (
-          definition.style.display === "none" ||
-          definition.style.display === ""
+          userInfoSection.style.display === "none" ||
+          userInfoSection.style.display === ""
         ) {
-          definition.style.display = "block"; // Mostra la definizione
+          userInfoSection.style.display = "block";
         } else {
-          definition.style.display = "none"; // Nascondi la definizione
+          userInfoSection.style.display = "none"; // Puoi nasconderla nuovamente se vuoi che sia una sezione a scomparsa
         }
+      });
+
+    document
+      .getElementById("userInfoLink")
+      .addEventListener("click", function (event) {
+        event.preventDefault(); // Preveniamo il comportamento predefinito del link
+
+        // Mostra la sezione nascosta
+        const userInfoSection = document.getElementById("userInfoSection");
+
+        if (
+          userInfoSection.style.display === "none" ||
+          userInfoSection.style.display === ""
+        ) {
+          userInfoSection.style.display = "block";
+        } else {
+          userInfoSection.style.display = "none"; // Puoi nasconderla nuovamente se vuoi che sia una sezione a scomparsa
+        }
+      });
+
+    document
+      .getElementById("bankInformationLink")
+      .addEventListener("click", function (event) {
+        event.preventDefault(); // Preveniamo il comportamento predefinito del link
+
+        // Mostra la sezione nascosta
+        const userInfoSection = document.getElementById(
+          "bankInformationSection"
+        );
+
+        if (
+          userInfoSection.style.display === "none" ||
+          userInfoSection.style.display === ""
+        ) {
+          userInfoSection.style.display = "block";
+        } else {
+          userInfoSection.style.display = "none"; // Puoi nasconderla nuovamente se vuoi che sia una sezione a scomparsa
+        }
+      });
+
+    function toggleDefinition(icon) {
+      // Trova la definizione sotto il td della riga cliccata
+      const definition = icon.parentElement.querySelector(".definition");
+      if (
+        definition.style.display === "none" ||
+        definition.style.display === ""
+      ) {
+        definition.style.display = "block"; // Mostra la definizione
+      } else {
+        definition.style.display = "none"; // Nascondi la definizione
       }
+    }
 
-      /*
-        function getMonthlySummary() {
-          const expenses = JSON.parse(localStorage.getItem("expense")) || [];
-          const monthlySummary = {};
-    
-          expenses.forEach(expense => {
-            const expenseDate = new Date(expense.date);
-            const monthKey = `${expenseDate.getFullYear()}-${String(expenseDate.getMonth() + 1).padStart(2, '0')}`;
-    
-            if (!monthlySummary[monthKey]) {
-              monthlySummary[monthKey] = { income: 0, expense: 0 };
-            }
-    
-            if (expense.income === "income") {
-              monthlySummary[monthKey].income += expense.cost;
-            } else if (expense.income === "expense") {
-              monthlySummary[monthKey].expense += expense.cost;
-            }
-          });
-    
-          return monthlySummary;
-        }
-    
-        function displayMonthlySummary() {
-          const summary = getMonthlySummary();
-          const tableBody = document.querySelector("#monthlySummaryTable tbody");
-          tableBody.innerHTML = "";
-    
-          Object.keys(summary).forEach(month => {
-            const monthData = summary[month];
-            const newRow = document.createElement("tr");
-    
-            newRow.innerHTML = `
-                <td>${month}</td>
-                <td>+ $ ${monthData.income.toFixed(2)}</td>
-                <td>- $ ${monthData.expense.toFixed(2)}</td>
-                <td>$ ${(monthData.income - monthData.expense).toFixed(2)}</td>
-            `;
-    
-            tableBody.appendChild(newRow);
-          });
-        }
-        */
-    </script>
-  </body>
+    /*
+      function getMonthlySummary() {
+        const expenses = JSON.parse(localStorage.getItem("expense")) || [];
+        const monthlySummary = {};
+  
+        expenses.forEach(expense => {
+          const expenseDate = new Date(expense.date);
+          const monthKey = `${expenseDate.getFullYear()}-${String(expenseDate.getMonth() + 1).padStart(2, '0')}`;
+  
+          if (!monthlySummary[monthKey]) {
+            monthlySummary[monthKey] = { income: 0, expense: 0 };
+          }
+  
+          if (expense.income === "income") {
+            monthlySummary[monthKey].income += expense.cost;
+          } else if (expense.income === "expense") {
+            monthlySummary[monthKey].expense += expense.cost;
+          }
+        });
+  
+        return monthlySummary;
+      }
+  
+      function displayMonthlySummary() {
+        const summary = getMonthlySummary();
+        const tableBody = document.querySelector("#monthlySummaryTable tbody");
+        tableBody.innerHTML = "";
+  
+        Object.keys(summary).forEach(month => {
+          const monthData = summary[month];
+          const newRow = document.createElement("tr");
+  
+          newRow.innerHTML = `
+              <td>${month}</td>
+              <td>+ $ ${monthData.income.toFixed(2)}</td>
+              <td>- $ ${monthData.expense.toFixed(2)}</td>
+              <td>$ ${(monthData.income - monthData.expense).toFixed(2)}</td>
+          `;
+  
+          tableBody.appendChild(newRow);
+        });
+      }
+      */
+  </script>
+</body>
 
-  <script src="/functions/user-function.js"></script>
-  <script src="/utils/loadFile.js"></script>
+<script src="/functions/user-function.js"></script>
+<script src="/utils/loadFile.js"></script>
 
-  <!-- <script type="module">
+<!-- <script type="module">
   loadUser();
 </script> -->
+
 </html>
