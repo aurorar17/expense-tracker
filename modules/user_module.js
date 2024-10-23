@@ -9,10 +9,10 @@ const mapFiller = (data) => {
 
 const categoryMapFiller = (data) => {
   for (let item of data) {
-    let tmpProduct = new Category(item.id, item.name, item.description);
+    let tmpProduct = new Category(item.id, item.name, item.description, item.limit);
 
     const li = document.createElement("li");
-    li.innerHTML = `${tmpProduct.name}<br />`;
+    li.innerHTML = `<div>${tmpProduct.name}</div><div>${tmpProduct.description}</div><div>${tmpProduct.limit}</div>`;
     categories.set(tmpProduct.id, tmpProduct);
     document.querySelector("#bankInformationSection").append(li);
   }

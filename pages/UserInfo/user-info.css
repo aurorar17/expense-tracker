@@ -1,3 +1,12 @@
+.user-container {
+    flex-direction: column;
+}
+
+#nav-2 {
+    display: flex;
+    flex-direction: row;
+}
+
 #user-info-h1 {
     color: #5a1cdf;
     font-size: 20px;
@@ -13,17 +22,22 @@
 
 h4 {
     background-color: #f2f2f2;
-    padding: 3%;
     font-weight: bold;
     text-align: center;
+    font-size: 15px;
 }
-
 
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
+
+table td,
+th {
+    padding-left: 10px;
+}
+
 
 th,
 td {
@@ -35,6 +49,7 @@ td {
 th {
     background-color: #5A1CDF;
     color: white;
+    padding-left: 10px;
 }
 
 tr:nth-child(even) {
