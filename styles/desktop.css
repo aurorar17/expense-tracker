@@ -221,7 +221,6 @@ th:first-child {
 }
 
 td {
-  /* padding-bottom: 10px; */
   width: auto;
   font-size: 1.2rem;
 }
@@ -281,7 +280,6 @@ canvas {
 }
 .categoriesChart canvas {
   height: calc(100% - 43px);
-  /* min-height: 300px; */
   width: auto;
 }
 
@@ -299,7 +297,6 @@ input {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  /* justify-content: space-between; */
 }
 
 select,
@@ -307,6 +304,7 @@ input {
   padding: 5px;
   border-radius: 5px;
   border: thin solid var(--sub-purple-color);
+  flex-grow: 1;
 }
 
 button {
@@ -319,4 +317,5 @@ button {
 button[type="submit"] {
   color: #fff;
   background-color: var(--main-purple-color);
+  min-width: 80px;
 }

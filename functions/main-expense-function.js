@@ -173,7 +173,7 @@ function addExpense() {
 
             // Update the table after adding expense
             const selectedMonthValue = parseInt(document.getElementById("currentMonthSelect").value);
-            updateTable(selectedMonthValue); // 선택된 월에 대한 테이블 업데이트
+            updateTable(selectedMonthValue); 
 
             // Close popup
             $("#mobileAddExpenseArea").removeClass("add-popup");
