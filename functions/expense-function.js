@@ -15,16 +15,40 @@ function addExpense() {
           const description = document.querySelector("#description").value;
           const cost =
             parseFloat(document.querySelector("input[type=number]").value) || 0;
-          const categoryName = categories.get(Number(category)).name;
+          const currentCategory = categories.get(Number(category));
 
           let expenses = JSON.parse(localStorage.getItem("expense")) || [];
+
+          const currentSpendAmount = expenses.reduce((result, expense) => {
+            if (
+              expense.category === currentCategory.name &&
+              expense.income === "income"
+            ) {
+              return result + expense.cost;
+            }
+
+            return result;
+          }, 0);
+
+          if (income === "expense") {
+            if (currentSpendAmount + cost > currentCategory.limit) {
+              alert(`You have exceeded your $${currentCategory.limit} limit.`);
+              return;
+            } else if (
+              currentCategory.limit - (currentSpendAmount + cost) <=
+              10
+            ) {
+              alert("There's not much left in the budget.");
+            }
+          }
+
           const lastExpense = expenses.slice(-1)[0];
           const id = lastExpense ? lastExpense.id + 1 : 1;
 
           const newExpense = {
             id,
             income,
-            category: categoryName,
+            category: currentCategory.name,
             date,
             title,
             description,

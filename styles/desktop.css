@@ -180,11 +180,6 @@ table {
   border-collapse: collapse;
 }
 
-#transactionTable {
-  overflow-y: auto;
-  scrollbar-width: none;
-}
-
 th {
   background-color: var(--main-purple-color);
   padding: 5px;
