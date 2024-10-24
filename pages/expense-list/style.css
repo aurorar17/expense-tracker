@@ -209,3 +209,12 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  main {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+}

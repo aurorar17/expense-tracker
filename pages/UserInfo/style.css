@@ -1,0 +1,143 @@
+.user-container {
+  flex-direction: column;
+}
+
+#nav-2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .menu {
+    width: 100%;
+
+    #bankInformationLink {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+#user-info-h1 {
+  color: #5a1cdf;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.user-info-h3 {
+  color: #5a1cdf;
+  font-size: 15px;
+  font-weight: bold;
+  padding-left: 5%;
+  width: fit-content;
+}
+
+h4 {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-align: center;
+  font-size: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table td,
+th {
+  padding-left: 10px;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #5a1cdf;
+  color: white;
+  padding-left: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.definition {
+  display: none;
+  /* Inizialmente nascondi le definizioni */
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  margin-top: 5px;
+}
+
+.info-icon {
+  cursor: pointer;
+  /* Indica che l'icona è cliccabile */
+  margin-left: 10px;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+.form-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+@media screen and (max-width: 768px) {
+  .wrap {
+    flex-direction: column;
+    height: 100%;
+
+    .user-container {
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
