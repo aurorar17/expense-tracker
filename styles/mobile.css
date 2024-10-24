@@ -82,10 +82,16 @@
     margin-bottom: 80px;
     gap: 32px;
     padding: 24px 0;
+    overflow-y: visible;
   }
 
   section {
     gap: 32px;
+  }
+
+  #currentMonthSelect {
+    font-size: 2.7rem;
+    background-size: 1.3rem;
   }
 
   .current-box {
