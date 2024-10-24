@@ -198,3 +198,14 @@
     }
   }
 }
+
+@media screen and (max-width: 376px) {
+  .row-container {
+    padding: 1rem 2rem;
+    gap: 2rem;
+
+    .description {
+      display: none;
+    }
+  }
+}

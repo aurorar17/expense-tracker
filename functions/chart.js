@@ -23,7 +23,7 @@ function generateChart() {
         }
     });
 
-    const labels = Array.from({ length: daysInMonth }, (_, i) => `${i + 1}일`);
+    const labels = Array.from({ length: daysInMonth }, (_, i) => `${selectedMonth}/${i + 1}`);
     
     const dailyChartCanvas = document.getElementById("dailyChart").getContext("2d");
     if (dailyChartCanvas.chart) {
