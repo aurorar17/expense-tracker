@@ -49,6 +49,15 @@
           <div class="current-box">
             <h3 class="transTitle">Current Balance</h3>
             <h1></h1>
+            <div class="limit-area">
+              <div class="monthly-limit">
+                <p class="monthly-total">300</p>
+                <p class="total-limit">300</p>
+              </div>
+              <div class="limitVar-area">
+                <div class="limit-fill"></div>
+              </div>
+            </div>
           </div>
           <div class="monthlyExpense">
             <div class="MonthSummary income">
@@ -96,9 +105,6 @@
         </div>
         <div class="add-expense">+</div>
         <div id="mobileAddExpenseArea">
-          <!-- popup // fetch the add-expense html -->
-          <!-- When Click the button of the "add-expense", the popup has a class "add-popup" -->
-          <!-- I'll make this function -->
           <div id="inputFormArea">
             <script type="module">
               addExpense();
@@ -115,6 +121,5 @@
   <script src="./classes/User.js"></script>
   <script src="/functions/main-expense-function.js"></script>
   <script src="/functions/chart.js"></script>
-  <!-- <script src="/functions/add-expense.js"></script> -->
   <script src="/utils/loadFile.js"></script>
 </html>
