@@ -20,11 +20,12 @@ export const userFiller = (data) => {
 };
 
 const categoryMapFiller = (data) => {
-  const localStorageCategories = JSON.parse(localStorage.getItem("categories")) || [];
+  const localStorageCategories =
+    JSON.parse(localStorage.getItem("categories")) || [];
   const categories = [];
 
   const tableBody = document.querySelector("#categoryTable tbody");
-  data.forEach(item => {
+  data.forEach((item) => {
     const targetCategory = localStorageCategories.find((c) => c.id === item.id);
     let tmpProduct = new Category(
       item.id,
@@ -67,13 +68,15 @@ const categoryMapFiller = (data) => {
         const errorMessage = document.getElementById("error-message");
         if (isNaN(parsedValue) || parsedValue <= 0) {
           console.log("error");
-          errorMessage.textContent = "Error: Invalid value";  // Mostra il messaggio di errore
+          errorMessage.textContent = "Error: Invalid value"; // Mostra il messaggio di errore
           return;
         }
 
         limitCell.textContent = newValue;
-        const filterCategories = localStorageCategories.filter((c) => c.id !== item.id);
-        targetCategory.limit = parsedValue;
+        const filterCategories = localStorageCategories.filter(
+          (c) => c.id !== item.id
+        );
+        targetCategory.limit = Number(newValue);
         filterCategories.push(targetCategory);
         errorMessage.textContent = "";
         localStorage.setItem("categories", JSON.stringify(filterCategories));

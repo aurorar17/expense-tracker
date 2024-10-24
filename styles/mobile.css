@@ -59,7 +59,7 @@
     margin: 5%;
   }
 
-  #mobileMenuBtn:checked~nav {
+  #mobileMenuBtn:checked ~ nav {
     display: block;
   }
 

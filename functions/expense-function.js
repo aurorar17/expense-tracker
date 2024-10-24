@@ -5,6 +5,8 @@ function addExpense() {
       document.querySelector("#inputFormArea").innerHTML = data;
 
       import("/modules/category_module.js").then(({ categories }) => {
+        const localStorageCategories =
+          JSON.parse(localStorage.getItem("categories")) || categories;
         document.getElementById("inputForm").addEventListener("submit", (e) => {
           e.preventDefault();
 
@@ -15,14 +17,18 @@ function addExpense() {
           const description = document.querySelector("#description").value;
           const cost =
             parseFloat(document.querySelector("input[type=number]").value) || 0;
-          const currentCategory = categories.get(Number(category));
+          const currentCategory = localStorageCategories.find(
+            (lc) => lc.id === Number(category)
+          );
 
-          let expenses = JSON.parse(localStorage.getItem("expense")) || [];
+          const expenses = JSON.parse(localStorage.getItem("expense")) || [];
 
           const currentSpendAmount = expenses.reduce((result, expense) => {
             if (
               expense.category === currentCategory.name &&
-              expense.income === "income"
+              expense.income === "expense" &&
+              new Date(expense.date).getMonth() + 1 ===
+                new Date(date).getMonth() + 1
             ) {
               return result + expense.cost;
             }
@@ -32,6 +38,7 @@ function addExpense() {
 
           if (income === "expense") {
             if (currentSpendAmount + cost > currentCategory.limit) {
+              console.log(currentCategory.limit);
               alert(`You have exceeded your $${currentCategory.limit} limit.`);
               return;
             } else if (
