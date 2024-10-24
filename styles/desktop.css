@@ -155,9 +155,11 @@ section {
       height: 2rem;
       border-radius: 2rem;
       background-color: var(--secondary-gray);
+      border: thin solid var(--sub-purple-color);
 
       .limit-fill {
         height: 100%;
+        max-width: 100%;
         border-radius: 2rem;
         background-color: var(--main-purple-color);
       }
