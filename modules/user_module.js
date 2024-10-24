@@ -20,10 +20,12 @@ export const userFiller = (data) => {
 };
 
 const categoryMapFiller = (data) => {
-  const localStorageCategories = JSON.parse(localStorage.getItem("categories"));
+  const localStorageCategories = JSON.parse(localStorage.getItem("categories")) || [];
   const categories = [];
 
-  for (let item of data) {
+  const tableBody = document.querySelector("#categoryTable tbody");
+  data.forEach(item => {
+    const targetCategory = localStorageCategories.find((c) => c.id === item.id);
     let tmpProduct = new Category(
       item.id,
       item.name,
@@ -31,12 +33,48 @@ const categoryMapFiller = (data) => {
       item.limit
     );
 
-    const li = document.createElement("li");
-    li.innerHTML = `<div>${tmpProduct.name}</div><div>${tmpProduct.description}</div><div>${tmpProduct.limit}</div>`;
     const category = JSON.parse(JSON.stringify(tmpProduct));
     categories.push(category);
-    document.querySelector("#bankInformationSection").append(li);
-  }
+
+    const row = document.createElement("tr");
+
+    const idCell = document.createElement("td");
+    idCell.textContent = category.id;
+    row.appendChild(idCell);
+
+    const nameCell = document.createElement("td");
+    nameCell.textContent = category.name;
+    row.appendChild(nameCell);
+
+    const descriptionCell = document.createElement("td");
+    descriptionCell.textContent = category.description;
+    row.appendChild(descriptionCell);
+
+    const limitCell = document.createElement("td");
+    limitCell.textContent = targetCategory.limit || category.limit;
+    limitCell.addEventListener("click", (e) => {
+      const input = document.createElement("input");
+      const currentValue = e.target.textContent;
+      input.value = currentValue;
+
+      limitCell.innerHTML = "";
+      limitCell.appendChild(input);
+      input.focus();
+
+      input.onblur = function () {
+        const newValue = input.value;
+        limitCell.textContent = newValue;
+        const filterCategories = localStorageCategories.filter((c) => c.id !== item.id);
+        targetCategory.limit = Number(newValue);
+        filterCategories.push(targetCategory);
+        localStorage.setItem("categories", JSON.stringify(filterCategories));
+      };
+    });
+    row.appendChild(limitCell);
+
+    // Append the row to the table
+    tableBody.appendChild(row);
+  });
 
   localStorage.setItem(
     "categories",
