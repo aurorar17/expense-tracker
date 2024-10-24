@@ -36,7 +36,7 @@ export const userFiller = (data) => {
   }
   const uImgElement = document.querySelector("#user-image");
   if (uImgElement && localStorageUser) {
-    uImgElement.innerHTML = localStorageUser.image || image;
+    uImgElement.src = localStorageUser.image || image;
   } else {
     console.error("Element or localStorageUser is not defined");
   }
