@@ -20,11 +20,12 @@ export const userFiller = (data) => {
 };
 
 const categoryMapFiller = (data) => {
-  const localStorageCategories = JSON.parse(localStorage.getItem("categories")) || [];
+  const localStorageCategories =
+    JSON.parse(localStorage.getItem("categories")) || [];
   const categories = [];
 
   const tableBody = document.querySelector("#categoryTable tbody");
-  data.forEach(item => {
+  data.forEach((item) => {
     const targetCategory = localStorageCategories.find((c) => c.id === item.id);
     let tmpProduct = new Category(
       item.id,
@@ -64,7 +65,9 @@ const categoryMapFiller = (data) => {
       input.onblur = function () {
         const newValue = input.value;
         limitCell.textContent = newValue;
-        const filterCategories = localStorageCategories.filter((c) => c.id !== item.id);
+        const filterCategories = localStorageCategories.filter(
+          (c) => c.id !== item.id
+        );
         targetCategory.limit = Number(newValue);
         filterCategories.push(targetCategory);
         localStorage.setItem("categories", JSON.stringify(filterCategories));
