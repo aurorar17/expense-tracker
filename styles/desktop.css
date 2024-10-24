@@ -68,7 +68,7 @@ header {
   width: 50%;
 }
 
-.menu > a {
+.menu>a {
   display: flex;
   align-items: center;
   /* gap: 10px; */
@@ -166,6 +166,7 @@ section {
   color: var(--green-to-income);
   font-size: 2rem;
 }
+
 .MonthSummary.expense h2 {
   color: var(--red-to-expense);
   font-size: 2rem;
@@ -239,9 +240,11 @@ tbody tr td:first-child {
 tbody tr.transIncome td:first-child {
   background-color: var(--green-to-income);
 }
+
 tbody tr.transExpense td:first-child {
   background-color: var(--red-to-expense);
 }
+
 .cost {
   white-space: nowrap;
 }
@@ -249,6 +252,7 @@ tbody tr.transExpense td:first-child {
 .transIncome span {
   color: var(--green-to-income);
 }
+
 .transExpense span {
   color: var(--red-to-expense);
 }
@@ -275,10 +279,12 @@ canvas {
   flex: 1;
   margin: 0 auto;
 }
+
 .chartArea canvas {
   width: 100%;
   height: auto;
 }
+
 .categoriesChart canvas {
   height: calc(100% - 43px);
   /* min-height: 300px; */

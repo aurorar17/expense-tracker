@@ -27,36 +27,36 @@
     "id": 5,
     "name": "Healthcare",
     "description": "Medical expenses, insurance, and medications",
-    "limit": 1000
+    "limit": 100
   },
   {
     "id": 6,
     "name": "Entertainment",
     "description": "Leisure activities such as movies, concerts, and subscriptions",
-    "limit": 1000
+    "limit": 300
   },
   {
     "id": 7,
     "name": "Education",
     "description": "Tuition fees, courses, books, and learning materials",
-    "limit": 1000
+    "limit": 600
   },
   {
     "id": 8,
     "name": "Clothing",
     "description": "Expenses on clothes, shoes, and accessories",
-    "limit": 1000
+    "limit": 70
   },
   {
     "id": 9,
     "name": "Savings",
     "description": "Money set aside for future use or emergencies",
-    "limit": 1000
+    "limit": 600
   },
   {
     "id": 10,
     "name": "Miscellaneous",
     "description": "Other expenses that don't fit into the defined categories",
-    "limit": 1000
+    "limit": 500
   }
 ]
