@@ -48,12 +48,10 @@ function updateBalances(selectedMonthValue) {
         .filter((expense) => expense.income === "expense")
         .reduce((sum, expense) => sum + (expense.cost || 0), 0);
 
-    const monthlyTotal = currentIncome - currentExpense;    
-
     // Add the monthly income & expense in UI
     document.querySelector(".monthlyExpense .income h2").textContent = `+ $ ${currentIncome.toFixed(2)}`;
     document.querySelector(".monthlyExpense .expense h2").textContent = `- $ ${currentExpense.toFixed(2)}`;
-    document.querySelector(".monthly-total").textContent = `$ ${monthlyTotal}`
+    document.querySelector(".monthly-total").textContent = `$ ${currentExpense}`
 
 
     // GET the limit data from localStorage
@@ -66,10 +64,11 @@ function updateBalances(selectedMonthValue) {
         return sum + category.limit;
       }, 0);
 
-      document.querySelector(".total-limit").textContent = `$ ${totalLimit}`
+      document.querySelector(".total-limit").textContent = `Total Limit : $ ${totalLimit}`
+
+      $(".limit-fill").css("width",`${currentExpense/totalLimit*100}%`)
     } 
-        
-    } 
+  } 
 
 // Update balances on initial load
 updateBalances(currentMonth);
