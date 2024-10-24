@@ -1,8 +1,9 @@
 {
   "uid": 1,
-  "fname": "Jun",
-  "lname": "Lee",
-  "email": "test@mail.com",
+  "fname": "John",
+  "lname": "Wick",
+  "email": "kill@you.com",
   "phone": "123-456-7890",
-  "password": 43890
+  "password": 43890,
+  "image": "/img/John.jpeg"
 }

@@ -7,12 +7,39 @@ export const userFiller = (data) => {
   const lname = localStorageUser?.lname || data.lname;
   const email = localStorageUser?.email || data.email;
   const phone = localStorageUser?.phone || data.phone;
+  const image = localStorageUser?.image || data.image;
 
   document.querySelector("#user-name").innerHTML = fname + " " + lname;
-  document.querySelector("#lname").innerHTML = localStorageUser?.lname || lname;
-  document.querySelector("#fname").innerHTML = fname;
-  document.querySelector("#email").innerHTML = email;
-  document.querySelector("#phone").innerHTML = phone;
+  const lElement = document.querySelector("#lname");
+  if (lElement && localStorageUser) {
+    lElement.innerHTML = localStorageUser.lname || lname;
+  } else {
+    console.error("Element or localStorageUser is not defined");
+  }
+  const fElement = document.querySelector("#fname");
+  if (fElement && localStorageUser) {
+    fElement.innerHTML = localStorageUser.fname || fname;
+  } else {
+    console.error("Element or localStorageUser is not defined");
+  }
+  const emailElement = document.querySelector("#email");
+  if (emailElement && localStorageUser) {
+    emailElement.innerHTML = localStorageUser.email || email;
+  } else {
+    console.error("Element or localStorageUser is not defined");
+  }
+  const pElement = document.querySelector("#phone");
+  if (pElement && localStorageUser) {
+    pElement.innerHTML = localStorageUser.phone || phone;
+  } else {
+    console.error("Element or localStorageUser is not defined");
+  }
+  const uImgElement = document.querySelector("#user-image");
+  if (uImgElement && localStorageUser) {
+    uImgElement.innerHTML = localStorageUser.image || image;
+  } else {
+    console.error("Element or localStorageUser is not defined");
+  }
 
   delete data.password;
 
@@ -20,13 +47,14 @@ export const userFiller = (data) => {
 };
 
 const categoryMapFiller = (data) => {
-  const localStorageCategories =
-    JSON.parse(localStorage.getItem("categories")) || [];
+  const localStorageCategories = JSON.parse(localStorage.getItem("categories"));
   const categories = [];
 
   const tableBody = document.querySelector("#categoryTable tbody");
   data.forEach((item) => {
-    const targetCategory = localStorageCategories.find((c) => c.id === item.id);
+    const targetCategory = localStorageCategories?.find(
+      (c) => c.id === item.id
+    );
     let tmpProduct = new Category(
       item.id,
       item.name,
@@ -52,7 +80,7 @@ const categoryMapFiller = (data) => {
     row.appendChild(descriptionCell);
 
     const limitCell = document.createElement("td");
-    limitCell.textContent = targetCategory.limit || category.limit;
+    limitCell.textContent = targetCategory?.limit || category.limit;
     limitCell.addEventListener("click", (e) => {
       const input = document.createElement("input");
       const currentValue = e.target.textContent;
@@ -75,8 +103,11 @@ const categoryMapFiller = (data) => {
     });
     row.appendChild(limitCell);
 
-    // Append the row to the table
-    tableBody.appendChild(row);
+    if (tableBody) {
+      tableBody.appendChild(row);
+    } else {
+      console.error("no table");
+    }
   });
 
   localStorage.setItem(
